@@ -1,5 +1,9 @@
 [book]
-authors = []
-language = "en"
+description = "Guia para orientar pessoas desenvolvedoras no aprendizado de Rust"
+authors = ["Eduardo Canellas de Oliveira"]
+language = "pt-br"
 multilingual = false
 src = "src"
+
+[rust]
+edition = "2021"
