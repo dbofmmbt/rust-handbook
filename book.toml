@@ -7,3 +7,7 @@ src = "src"
 
 [rust]
 edition = "2021"
+
+[output.html]
+default-theme = "ayu"
+git-repository-url = "https://github.com/dbofmmbt/guia-para-entender-rust"
