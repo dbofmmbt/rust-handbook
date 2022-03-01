@@ -4,9 +4,18 @@
 
 # Guia
 
-- [Introdução](./introduction.md)
+- [Introdução](./introduction/README.md)
+  - [Pré-requisitos](./introduction/prerequisites.md)
+  - [Roadmap](./introduction/roadmap.md)
+  - [Instalação](./introduction/installation.md)
+  - [Olá, Mundo!](./introduction/hello_world.md)
 - [Ferramentas](./tools.md)
-- [Programação Estruturada](./structured_programming.md)
+- [Elementos Básicos](./basic_elements.md)
+- [Programação Estruturada](./structured_programming/README.md)
+  - [Sequência](./structured_programming/sequence.md)
+  - [Decisão](./structured_programming/decision.md)
+  - [Repetição](./structured_programming/repetition.md)
+  - [Funções](./structured_programming/functions.md)
 - [Tipos e _Traits_](./types_and_traits.md)
 - [Código Genérico](./generics.md)
 - [Propriedade e Empréstimo](./ownership_and_borrowing.md)
