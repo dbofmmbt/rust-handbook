@@ -137,7 +137,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="olá-mundo"><a class="header" href="#olá-mundo">Olá, Mundo!</a></h1>
+                        <h1 id="olá-mundo"><a class="header" href="#olá-mundo">Olá, Mundo</a></h1>
+<p>É uma tradição, ao aprender uma linguagem de programação nova, a apresentação do <code>hello, world!</code> da linguagem, que consiste em exibir uma mensagem no terminal com os dizeres &quot;Olá, Mundo!&quot;.</p>
+<p>Então vamos lá:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    println!(&quot;Olá, Mundo!&quot;);
+}
+</code></pre></pre>
+<p>Só com esse pequeno trecho de código já é possível ter contato com vários elementos da linguagem, que vamos ver com detalhes posteriormente. Não se preocupe em entendê-los a fundo agora.</p>
+<ul>
+<li>A função <code>main</code> que define o ponto de entrada da execução. É onde o código da sua aplicação começa a rodar.</li>
+<li>Blocos são definidos com um par de <code>{</code> e <code>}</code>. Algumas linguagens, como Python, usam identação. Outras usam palavras-chave como <code>begin</code> e <code>end</code>.</li>
+<li><code>println!</code> é uma macro. Posso dizer isso por conta do <code>!</code> no final. No momento da compilação, as macros são processadas para geração de código, que é inserido no local onde foram chamadas. Não se preocupe em entender macros agora, só saiba que usaremos algumas antes de uma explicação mais aprofundada.</li>
+<li><code>&quot;Olá, Mundo!&quot;</code>, falando de forma bem simplificada, pode ser entendida como um literal de texto. Em Rust, existem alguns tipos diferentes de texto (e.g. <code>String</code>, <code>str</code>) e mais para frente vai ficar claro o porquê.</li>
+<li><code>println!(&quot;Olá, Mundo!&quot;);</code> é uma declaração que chama uma macro passando um texto como argumento e tem como efeito exibir um conteúdo no terminal (com quebra de linha). Declarações em Rust terminam com <code>;</code>. Existem também as expressões, que são processadas em tempo de execução e são reduzidas a um valor. Por exemplo: <code>2 + 2</code> é reduzido para o valor inteiro <code>4</code>.</li>
+</ul>
+<p>Acho que essas informações já são um bom começo para um &quot;Hello, world!&quot;. Agora sim começamos com o pé direito!</p>
 
                     </main>
 

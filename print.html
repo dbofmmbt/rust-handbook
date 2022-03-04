@@ -152,9 +152,29 @@ Não pense que você precisa absorver tudo de uma vez só, pois ninguém deveria
 <!-- TODO gancho para a próxima seção -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introdução"><a class="header" href="#introdução">Introdução</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pré-requisitos"><a class="header" href="#pré-requisitos">Pré-requisitos</a></h1>
+<p>De forma geral, eu assumo que a pessoa leitora sabe programar em alguma linguagem, mesmo que apenas o básico. Se eu fosse fazer um guia para iniciar alguém a programar do zero (e pretendo fazer um dia!) eu explicaria diversos conceitos do funcionamento de computadores e de paradigmas de programação, e isso tomaria tempo para escrever bem. Se você não souber programar e quiser seguir o guia mesmo assim, lembre-se de ir com calma e buscar informações adicionais na internet quando sentir necessidade.</p>
+<p>Outro requisito importante é o alinhamento com a minha proposta. Meu foco é no entendimento dos conceitos. Em <em>software</em>, entender o que você está fazendo pode ser a diferença entre resolver um problema em minutos ou em dias. Vão surgir exemplos e exercícios ao longo do guia, mas meu foco sempre é conceitual.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="instalação"><a class="header" href="#instalação">Instalação</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="olá-mundo"><a class="header" href="#olá-mundo">Olá, Mundo!</a></h1>
+<p>A forma mais recomendada para a instalação é através da ferramenta <code>rustup</code>, que cuida de instalações e atualizações dos componentes básicos da linguagem, como o <code>rustc</code>, <code>cargo</code> e <code>clippy</code>.</p>
+<p>Se você decidiu instalar a linguagem na sua máquina, basta seguir as instruções no site do <a href="https://rustup.rs">rustup</a> que deve dar tudo certo. Caso você use Windows, recomendo dar uma olhada nessa página de <a href="https://docs.microsoft.com/pt-br/windows/dev-environment/rust/setup">setup da linguagem Rust no Windows</a>, da Microsoft, pois talvez você precise instalar dependências adicionais.</p>
+<p>Caso você queira fazer pequenos experimentos sem ter que instalar a linguagem, uma boa alternativa é o uso do <a href="https://play.rust-lang.org/">playground</a>, que é um editor online que permite compilar e rodar códigos simples. Ele é bom também para compartilhar trechos de código com outras pessoas para tirar dúvidas específicas.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="olá-mundo"><a class="header" href="#olá-mundo">Olá, Mundo</a></h1>
+<p>É uma tradição, ao aprender uma linguagem de programação nova, a apresentação do <code>hello, world!</code> da linguagem, que consiste em exibir uma mensagem no terminal com os dizeres &quot;Olá, Mundo!&quot;.</p>
+<p>Então vamos lá:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    println!(&quot;Olá, Mundo!&quot;);
+}
+</code></pre></pre>
+<p>Só com esse pequeno trecho de código já é possível ter contato com vários elementos da linguagem, que vamos ver com detalhes posteriormente. Não se preocupe em entendê-los a fundo agora.</p>
+<ul>
+<li>A função <code>main</code> que define o ponto de entrada da execução. É onde o código da sua aplicação começa a rodar.</li>
+<li>Blocos são definidos com um par de <code>{</code> e <code>}</code>. Algumas linguagens, como Python, usam identação. Outras usam palavras-chave como <code>begin</code> e <code>end</code>.</li>
+<li><code>println!</code> é uma macro. Posso dizer isso por conta do <code>!</code> no final. No momento da compilação, as macros são processadas para geração de código, que é inserido no local onde foram chamadas. Não se preocupe em entender macros agora, só saiba que usaremos algumas antes de uma explicação mais aprofundada.</li>
+<li><code>&quot;Olá, Mundo!&quot;</code>, falando de forma bem simplificada, pode ser entendida como um literal de texto. Em Rust, existem alguns tipos diferentes de texto (e.g. <code>String</code>, <code>str</code>) e mais para frente vai ficar claro o porquê.</li>
+<li><code>println!(&quot;Olá, Mundo!&quot;);</code> é uma declaração que chama uma macro passando um texto como argumento e tem como efeito exibir um conteúdo no terminal (com quebra de linha). Declarações em Rust terminam com <code>;</code>. Existem também as expressões, que são processadas em tempo de execução e são reduzidas a um valor. Por exemplo: <code>2 + 2</code> é reduzido para o valor inteiro <code>4</code>.</li>
+</ul>
+<p>Acho que essas informações já são um bom começo para um &quot;Hello, world!&quot;. Agora sim começamos com o pé direito!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ferramentas"><a class="header" href="#ferramentas">Ferramentas</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="elementos-básicos"><a class="header" href="#elementos-básicos">Elementos Básicos</a></h1>
 <ul>
