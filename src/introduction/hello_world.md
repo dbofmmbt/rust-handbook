@@ -10,6 +10,8 @@ fn main() {
 }
 ```
 
+Você pode rodar esse código direto do guia. Basta clicar no botão "play" no canto superior direito da caixa que contém o código.
+
 Só com esse pequeno trecho de código já é possível ter contato com vários elementos da linguagem, que vamos ver com detalhes posteriormente. Não se preocupe em entendê-los a fundo agora.
 
 - A função `main` que define o ponto de entrada da execução. É onde o código da sua aplicação começa a rodar.
