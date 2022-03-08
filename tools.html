@@ -138,6 +138,39 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="ferramentas"><a class="header" href="#ferramentas">Ferramentas</a></h1>
+<p>A seguir, temos uma lista com algumas das ferramentas que são muito importantes para a linguagem. Cada título de seção possui um link para a documentação da ferramenta em questão, caso você queira informações mais específicas.</p>
+<h2 id="rustup"><a class="header" href="#rustup"><a href="https://rustup.rs">Rustup</a></a></h2>
+<p>É o instalador do Rust. Com ele você consegue instalar e atualizar diversos componentes da linguagem. Alguns deles são descritos abaixo.</p>
+<h2 id="rustc"><a class="header" href="#rustc"><a href="https://doc.rust-lang.org/rustc/index.html">Rustc</a></a></h2>
+<p>Esse é o compilador da linguagem. Normalmente ele não é utilizado diretamente, pois o Cargo simplifica diversas tarefas no desenvolvimento e lida com o compilador por nós.</p>
+<h2 id="cargo"><a class="header" href="#cargo"><a href="https://doc.rust-lang.org/cargo/index.html">Cargo</a></a></h2>
+<p>É o gerenciador de pacotes do Rust. Ele permite:</p>
+<ul>
+<li>Criar um pacote com uma estrutura padronizada: <code>cargo new &lt;nome_do_projeto&gt;</code></li>
+<li>Realizar diversas atividades de desenvolvimento:
+<ul>
+<li>Checar se o código compila: <code>cargo check</code></li>
+<li>Rodar testes: <code>cargo test</code></li>
+<li>Compilar o código: <code>cargo build</code></li>
+<li>Compilar <strong>e</strong> rodar o código: <code>cargo run</code></li>
+</ul>
+</li>
+<li>Publicar um pacote para ser usado por outras pessoas: <code>cargo publish</code></li>
+</ul>
+<p>Tem muitas outras coisas que podem ser feitas através do cargo, mas esse já é um bom começo.</p>
+<h2 id="rustfmt"><a class="header" href="#rustfmt"><a href="https://github.com/rust-lang/rustfmt">Rustfmt</a></a></h2>
+<p>É o formatador de código da linguagem. Praticamente todo projeto utiliza ele. Essa padronização diminui trabalho manual ao programar, facilita a entrada em bases de código novas, elimina discussões sobre estilo... As vantagens compensam (e muito) a redução de liberdade no estilo do código.</p>
+<p>Para utilizá-lo, basta rodar <code>cargo fmt</code> e todo o seu projeto será ajustado.</p>
+<h2 id="clippy"><a class="header" href="#clippy"><a href="https://github.com/rust-lang/rust-clippy">Clippy</a></a></h2>
+<p>É o <em>linter</em> da linguagem, que é basicamente uma ferramenta que analisa seu código e é capaz de oferecer sugestões para tentar torná-lo melhor. Principalmente ao começar na linguagem, <code>cargo clippy</code> pode te mostrar formas mais idiomáticas na escrita do código, além de identificar erros de programação comuns.</p>
+<h2 id="rustdoc"><a class="header" href="#rustdoc"><a href="https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html">Rustdoc</a></a></h2>
+<p>Rust é reconhecida por seu ecossistema ter uma documentação acima da média e isso é fruto de um excelente suporte à geração de documentação através do <code>rustdoc</code>. Ao rodar <code>cargo doc</code>, a documentação do seu projeto e de suas dependências são construídas e todos têm acesso a uma forma padronizada de documentação, reduzindo o peso da atividade e aumentando a produtividade de quem desenvolve e depende de pacotes de outras pessoas.</p>
+<h2 id="suporte-de-ide"><a class="header" href="#suporte-de-ide">Suporte de IDE</a></h2>
+<p>Uma linguagem moderna <strong>precisa</strong> ter um suporte adequado para a interação com o código fonte. Embora Rust seja uma linguagem nova, já existem projetos muito bons para oferecer esse suporte a vários editores.</p>
+<h3 id="rust-analyzer"><a class="header" href="#rust-analyzer"><a href="https://rust-analyzer.github.io/">Rust-Analyzer</a></a></h3>
+<p>É o servidor de linguagem que alimenta vários editores de texto, como VS Code e Vim. No VS Code, basta instalar a extensão <code>rust-analyzer</code> para ter o suporte.</p>
+<h3 id="intellij-rust"><a class="header" href="#intellij-rust"><a href="https://www.jetbrains.com/pt-br/rust/">Intellij Rust</a></a></h3>
+<p>Para as IDEs baseadas no Intellij, existe um plugin desenvolvido abertamente pela JetBrains que traz suporte a Rust aos seus editores. Basta instalar o plugin e contar com suporte na sua IDE.</p>
 
                     </main>
 
