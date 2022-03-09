@@ -214,18 +214,101 @@ Não pense que você precisa absorver tudo de uma vez só, pois ninguém deveria
 <h3 id="intellij-rust"><a class="header" href="#intellij-rust"><a href="https://www.jetbrains.com/pt-br/rust/">Intellij Rust</a></a></h3>
 <p>Para as IDEs baseadas no Intellij, existe um plugin desenvolvido abertamente pela JetBrains que traz suporte a Rust aos seus editores. Basta instalar o plugin e contar com suporte na sua IDE.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="elementos-básicos"><a class="header" href="#elementos-básicos">Elementos Básicos</a></h1>
+<p>Os elementos abaixo, embora simples, são um ponto de partida importante para programar. A maioria desses conceitos estão presentes em outras linguagens.</p>
+<h2 id="tipos-primitivos"><a class="header" href="#tipos-primitivos">Tipos primitivos</a></h2>
+<p>Essa seção não é exaustiva por questões de simplicidade. Existem outros tipos primitivos além desses e você pode descobrir sobre todos na <a href="https://doc.rust-lang.org/std/index.html#primitives">seção de tipos primitivos da documentação da linguagem</a>.</p>
+<h3 id="inteiros"><a class="header" href="#inteiros"><strong>Inteiros</strong></a></h3>
 <ul>
-<li>Tipos primitivos</li>
-<li>variáveis</li>
-<li>Operadores
+<li>Com sinal: <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code> e <code>isize</code>. (<code>i</code> de <em>integer</em>).
 <ul>
-<li>de atribuição</li>
-<li>Aritméticos</li>
-<li>Lógicos</li>
-<li>Relacionais</li>
+<li>e.g.: <code>0</code>, <code>-5</code>, <code>1_000_000i32</code></li>
+</ul>
+</li>
+<li>Sem sinal: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code> e <code>usize</code>. (<code>u</code> de <em>unsigned</em>, sem sinal).
+<ul>
+<li>e.g.: <code>10</code>, <code>42</code>, <code>1_000_000usize</code></li>
 </ul>
 </li>
 </ul>
+<p>O número no tipo representa quantos bits são usados pelo inteiro. Isso tem relação direta com o intervalo de valores que são possíveis de representar. Por exemplo, <code>u8</code> consegue representar um intervalo de 2<sup>8</sup> valores.</p>
+<h3 id="floats"><a class="header" href="#floats"><strong>Floats</strong></a></h3>
+<p><code>f32</code> e <code>f64</code>. Exemplos: <code>1.0</code>, <code>-15.50f32</code></p>
+<p>Números flutuantes permitem representar números decimais (com uma imprecisão inerente da representação de ponto flutuante no <em>hardware</em>). <em>Floats</em>, conforme o padrão IEEE-754, podem ser um pouco mais trabalhosos de lidar do que você estava acostumado em outras linguagens. Rust deixa explícito possíveis tiros no pé que poderiam passar despercebidos.</p>
+<h3 id="bool"><a class="header" href="#bool"><strong>bool</strong></a></h3>
+<p>Pode assumir os valores <code>true</code> e <code>false</code>.</p>
+<h3 id="unit"><a class="header" href="#unit">Unit</a></h3>
+<p>Esse é o tipo do <code>()</code>, que é o único valor desse tipo. Ele é usado em locais em que não há um valor significativo definido. Por exemplo: funções que &quot;não retornam nada&quot; na verdade retornam <code>()</code>.</p>
+<h2 id="variáveis"><a class="header" href="#variáveis">Variáveis</a></h2>
+<p>Uma variável guarda um valor e ela pode ser manipulada através de seu identificador. Em Rust, utilizamos o <code>let</code> para definir variáveis. <code>let</code> trabalha com casamento de padrões, mas por enquanto não iremos tirar proveito desse recurso para manter as coisas simples.</p>
+<p>Abaixo segue o esqueleto de declaração e associação (<em>binding</em>) de uma variável.</p>
+<pre><code class="language-rust ignore">// Declaração
+let &lt;identificador&gt;: &lt;tipo&gt;;
+
+// Declaração com associação de valor
+let &lt;identificador&gt;[: &lt;tipo&gt;] = &lt;expressão&gt;;
+</code></pre>
+<p>As variáveis em Rust são imutáveis por padrão. Caso você tente mudar o conteúdo de uma variável imutável, o compilador reclamará:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// Se você tentar rodar, verá que esse código não compila.
+let x = 5;
+x = 10;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Como nosso querido compilador sugere, basta adicionar <code>mut</code> antes do identificador para tornar a variável mutável.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// Agora vai!
+let mut x = 5;
+x = 10;
+assert_eq!(x, 10);
+<span class="boring">}
+</span></code></pre></pre>
+<p>É importante notar que Rust possui inferência de tipos. Isto é, ela tenta identificar tipos não declarados através dos tipos das expressões utilizadas no código. Por exemplo:</p>
+<pre><code class="language-rust ignore">let is_raining = true;
+</code></pre>
+<p>Não é obrigatório anotar o tipo. Já que <code>true</code> é do tipo <code>bool</code>, <code>is_raining</code> também vai ser.</p>
+<h2 id="operadores"><a class="header" href="#operadores">Operadores</a></h2>
+<p>Uma lista completa pode ser encontrada <a href="https://doc.rust-lang.org/book/appendix-02-operators.html">neste apêndice do livro do Rust</a>.</p>
+<h3 id="aritméticos"><a class="header" href="#aritméticos">Aritméticos</a></h3>
+<p><code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>%</code></p>
+<p>Caso você não conheça, <code>%</code> é o resto de divisão do primeiro número pelo segundo.</p>
+<p>Esses operadores podem ser usados em conjunto com atribuição. Por exemplo:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut x = 2 + 2;
+x += 1;
+assert_eq!(x, 5);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="lógicos"><a class="header" href="#lógicos">Lógicos</a></h3>
+<ul>
+<li>Negação:<code>!</code></li>
+<li>E lógico: <code>&amp;&amp;</code></li>
+<li>OU lógico: <code>||</code></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = true &amp;&amp; !false;
+assert_eq!(x, true);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="relacionais"><a class="header" href="#relacionais">Relacionais</a></h3>
+<p><code>&lt;</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>, <code>&gt;=</code>, <code>&gt;</code></p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5 &lt;= 10;
+assert_eq!(x, true);
+
+let y = 3 &lt; 1;
+assert_eq!(y, false);
+<span class="boring">}
+</span></code></pre></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="programação-estruturada"><a class="header" href="#programação-estruturada">Programação Estruturada</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sequência"><a class="header" href="#sequência">Sequência</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="decisão"><a class="header" href="#decisão">Decisão</a></h1>
