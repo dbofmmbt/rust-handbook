@@ -45,7 +45,7 @@ let <identificador>[: <tipo>] = <expressão>;
 
 As variáveis em Rust são imutáveis por padrão. Caso você tente mudar o conteúdo de uma variável imutável, o compilador reclamará:
 
-```rust
+```rust,compile_fail
 // Se você tentar rodar, verá que esse código não compila.
 let x = 5;
 x = 10;
