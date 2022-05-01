@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">Sobre esse Guia</a></li><li class="chapter-item expanded affix "><li class="part-title">Guia</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pré-requisitos</a></li><li class="chapter-item expanded "><a href="introduction/roadmap.html"><strong aria-hidden="true">1.2.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.3.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.4.</strong> Olá, Mundo!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Ferramentas</a></li><li class="chapter-item expanded "><a href="basic_elements.html"><strong aria-hidden="true">3.</strong> Elementos Básicos</a></li><li class="chapter-item expanded "><a href="structured_programming/index.html"><strong aria-hidden="true">4.</strong> Programação Estruturada</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="structured_programming/sequence.html"><strong aria-hidden="true">4.1.</strong> Sequência</a></li><li class="chapter-item expanded "><a href="structured_programming/decision.html"><strong aria-hidden="true">4.2.</strong> Decisão</a></li><li class="chapter-item expanded "><a href="structured_programming/repetition.html"><strong aria-hidden="true">4.3.</strong> Repetição</a></li><li class="chapter-item expanded "><a href="structured_programming/functions.html"><strong aria-hidden="true">4.4.</strong> Funções</a></li></ol></li><li class="chapter-item expanded "><a href="types_and_traits.html"><strong aria-hidden="true">5.</strong> Tipos e Traits</a></li><li class="chapter-item expanded "><a href="generics.html"><strong aria-hidden="true">6.</strong> Código Genérico</a></li><li class="chapter-item expanded "><a href="ownership_and_borrowing.html" class="active"><strong aria-hidden="true">7.</strong> Propriedade e Empréstimo</a></li><li class="chapter-item expanded "><a href="project_structure.html"><strong aria-hidden="true">8.</strong> Estrutura de um Projeto</a></li><li class="chapter-item expanded "><a href="functional_programming.html"><strong aria-hidden="true">9.</strong> Programação Funcional</a></li><li class="chapter-item expanded affix "><li class="part-title">Tópicos Avançados</li><li class="chapter-item expanded "><a href="advanced_topics.html"><strong aria-hidden="true">10.</strong> Tópicos Avançados</a></li><li class="chapter-item expanded affix "><li class="part-title">Projetos de Treino</li><li class="chapter-item expanded "><a href="training_projects.html"><strong aria-hidden="true">11.</strong> Projetos de Treino</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">Sobre esse Guia</a></li><li class="chapter-item expanded affix "><li class="part-title">Guia</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introdução</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pré-requisitos</a></li><li class="chapter-item expanded "><a href="introduction/roadmap.html"><strong aria-hidden="true">1.2.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.3.</strong> Instalação</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.4.</strong> Olá, Mundo!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Ferramentas</a></li><li class="chapter-item expanded "><a href="basic_elements.html"><strong aria-hidden="true">3.</strong> Elementos Básicos</a></li><li class="chapter-item expanded "><a href="structured_programming/index.html"><strong aria-hidden="true">4.</strong> Programação Estruturada</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="structured_programming/sequence.html"><strong aria-hidden="true">4.1.</strong> Sequência</a></li><li class="chapter-item expanded "><a href="structured_programming/decision.html"><strong aria-hidden="true">4.2.</strong> Decisão</a></li><li class="chapter-item expanded "><a href="structured_programming/repetition.html"><strong aria-hidden="true">4.3.</strong> Repetição</a></li><li class="chapter-item expanded "><a href="structured_programming/functions.html"><strong aria-hidden="true">4.4.</strong> Funções</a></li></ol></li><li class="chapter-item expanded "><a href="ownership_and_borrowing.html" class="active"><strong aria-hidden="true">5.</strong> Propriedade e Empréstimo</a></li><li class="chapter-item expanded "><a href="types_and_traits.html"><strong aria-hidden="true">6.</strong> Tipos e Traits</a></li><li class="chapter-item expanded "><a href="generics.html"><strong aria-hidden="true">7.</strong> Código Genérico</a></li><li class="chapter-item expanded "><a href="project_structure.html"><strong aria-hidden="true">8.</strong> Estrutura de um Projeto</a></li><li class="chapter-item expanded "><a href="functional_programming.html"><strong aria-hidden="true">9.</strong> Programação Funcional</a></li><li class="chapter-item expanded affix "><li class="part-title">Tópicos Avançados</li><li class="chapter-item expanded "><a href="advanced_topics.html"><strong aria-hidden="true">10.</strong> Tópicos Avançados</a></li><li class="chapter-item expanded affix "><li class="part-title">Projetos de Treino</li><li class="chapter-item expanded "><a href="training_projects.html"><strong aria-hidden="true">11.</strong> Projetos de Treino</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -138,15 +138,222 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="propriedade-e-empréstimo"><a class="header" href="#propriedade-e-empréstimo">Propriedade e Empréstimo</a></h1>
+<p>Se você me perguntar: &quot;qual é a coisa mais inovadora de Rust?&quot;, minha resposta é <em>ownership</em>. Esse conceito permite que a linguagem seja <em>memory-safe</em> sem coletor de lixo. Na prática, você tem o desempenho de uma linguagem de sistemas sem abrir mão da confiabilidade.</p>
+<p>Se você veio de linguagens que não sejam C ou C++, isso quer dizer que agora você tem uma linguagem de sistemas que te dá passa a sensação de programar em alto nível. Qualquer um pode escrever código eficiente sem medo de acidentalmente corromper a memória.</p>
+<p>Se por acaso você conhece C e C++, você provavelmente já precisou debuggar uma série de erros provenientes do gerenciamento manual de memória. Ficará feliz em saber que o <code>rustc</code> simplesmente rejeita programas que podem causar esses erros, com mensagens de erro instrutivas, te explicando o que poderia ocorrer de errado.</p>
+<h2 id="o-conceito"><a class="header" href="#o-conceito">O Conceito</a></h2>
+<p>As regras de propriedade são bem simples:</p>
+<ul>
+<li>Todo valor tem uma única variável que é sua dona.</li>
+<li>A propriedade do valor pode ser movida.</li>
+<li>Quando a dona sai de escopo, o valor é liberado.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    let x = String::from(&quot;hello&quot;); // x é dona da string
+    // ...
+    println!(&quot;Inicialmente, x é dona de: {x}&quot;);
+    // ...
+    let y = x; // a string foi movida para `y`. `x` deixou de ser dona.
+    // A partir desse ponto, tentar acessar a string através de `x` é uma operação inválida, já que a string foi movida.
+    // ...
+    // println!(&quot;x é dona de: {x}&quot;); // inválido!
+    // ...
+    println!(&quot;Agora, y é dona de: {y}&quot;);
+    // ...
+    // Ao final dessa função, `y` sai de escopo e a string vai ser liberada.
+}
+</code></pre></pre>
+<p>Além da propriedade, temos o empréstimo:</p>
+<ul>
+<li>O dono de um valor pode emprestá-lo através de referências compartilhadas (imutáveis) ou únicas (mutáveis).</li>
+<li>A qualquer momento, só pode haver uma referência única ou qualquer número de referências compartilhadas.</li>
+<li>Referências são sempre válidas. Elas não podem ser utilizadas após o valor que referenciam ser movido ou liberado.</li>
+</ul>
+<p>É isso. Ao respeitar essas regras, estamos livres de qualquer problema envolvendo alocação e liberação de recursos. <strong>E a melhor parte</strong>: o compilador checa se estamos respeitando essas regras automaticamente.</p>
+<p>Ilustrando com um exemplo:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+struct Book {
+    title: String,
+}
+
+fn shared(book: &amp;Book) {
+    println!(&quot;[shared] O título do livro é: {}\n&quot;, book.title);
+}
+
+fn unique(book: &amp;mut Book) {
+    println!(&quot;[unique] O título do livro era: {}&quot;, book.title);
+    book.title.push_str(&quot; parte 2&quot;);
+    println!(&quot;[unique] Agora o título é: {}\n&quot;, book.title);
+}
+
+fn be_owner(book: Book) {
+    println!(&quot;[be_owner] Sou dono do livro: {}\n&quot;, book.title);
+}
+
+fn main() {
+    let mut first_owner = Book {
+        title: String::from(&quot;Como fazer amigos e influenciar pessoas&quot;) // recomendo
+    };
+
+    // Aqui estamos concedendo um empréstimo compartilhado do livro para a variável `first_borrow`
+    let first_borrow = &amp;first_owner;
+
+    // Criamos uma segunda referência compartilhada para passar para a função `shared`
+    shared(&amp;first_owner);
+
+    // Tudo bem você fazer um empréstimo mutável...
+    unique(&amp;mut first_owner);
+
+    // Mas você não pode mais acessar `first_borrow`!
+    // println!(&quot;titulo: {}&quot;, first_borrow.title);
+
+    // Mas não tem problema você criar uma nova referência compartilhada.
+    let second_borrow = &amp;first_owner;
+
+    // A ideia é que se você tem uma referência compartilhada, você não pode acessar o conteúdo dela caso ele possa ter sido alterado (i.e. por uma referência única ou quando o valor é movido de dono)
+
+    // Tudo okay!
+    shared(second_borrow);
+
+    // Propriedade movida para um novo dono.
+    let second_owner = first_owner;
+
+    // Todas as referências anteriores deixam de ser válidas por conta do movimento. O antigo dono deixa de ser acessível também!
+    // shared(second_borrow);
+    // unique(&amp;mut first_owner);
+
+    println!(&quot;[main] segundo dono: {}\n&quot;, second_owner.title);
+
+    be_owner(second_owner);
+
+    // O livro não é mais acessível aqui, já que sua propriedade foi passada para a função `be_owner`. Nesse ponto, o valor já foi liberado. `second_owner` também não é mais acessível.
+    // let invalid_borrow = &amp;second_owner;
+}
+</code></pre></pre>
+<p>Fique à vontade para brincar com esse exemplo. Repare nas mensagens de erro. Elas são bem descritivas e foram feitas para te ajudar a ter uma melhor compreensão do porquê determinada operação é inválida.</p>
+<p>Tudo que você viu aqui permeia a linguagem inteiramente. Com o tempo, esses conceitos ficam naturais e você começa a concordar com o <em>borrow checker</em> (parte do <code>rustc</code> que checa se você está respeitando as regras) em vez de lutar com ele. Dá até falta desses conceitos quando volto para outras linguagens, pois é mais fácil entender o que está acontecendo no programa.</p>
+<p>Talvez algumas pessoas reparem que certas coisas que causam erro no exemplo do <code>Book</code> são possíveis com inteiros e <em>floats</em>. A razão disso é que esses tipos são baratos de copiar. Então, em vez de mover o valor, ele é copiado. Isso acontece, pois eles implementam a <em>trait</em> <code>Copy</code>. Vamos conversar sobre <em>traits</em> mais adiante.</p>
+<p>Além disso, eu propositalmente omiti o conceito de <em>lifetimes</em>. Eles são necessários para o compilador garantir que as referências são sempre válidas. Me pareceu mais apropriado abordar esse conceito após explicar código genérico, já que o <em>lifetime</em> é uma generalização do tempo de vida de um valor.</p>
+<h2 id="do-que-o-rustc-te-protege"><a class="header" href="#do-que-o-rustc-te-protege">Do que o <code>rustc</code> te protege</a></h2>
+<p>Os exemplos a seguir são em C, pois ela permite ilustrar bem como você pode causar comportamento indefinido (UB) no seu programa, que é basicamente uma forma elegante de dizer que ele pode, em qualquer execução da sua aplicação, fazer com que ela:</p>
+<ul>
+<li>Aborte a execução</li>
+<li>Funcione normalmente</li>
+<li>Funcione, mas processe valores inválidos</li>
+</ul>
+<p>Quando você tem UB, o melhor que pode acontecer é a execução ser abortada assim que a corrupção ocorre. Assim você pode tentar identificar onde ocorreu o uso indevido de memória e corrigir o problema. Entretanto, pode funcionar na sua máquina, mas em produção não. É, bem divertido.</p>
+<p>Particularmente, eu só entendi todos os problemas de memória abaixo quando aprendi Rust. Antes eu esbarrava neles sem saber de fato que tipo de erro estava ocorrendo. No meu aprendizado de C, nenhuma referência que usei me ensinou sobre essas classes de erros de forma clara.</p>
+<h3 id="use-after-free"><a class="header" href="#use-after-free"><em>use after free</em></a></h3>
+<p>Consiste em usar uma memória que você já liberou para o sistema. Quando uma região de memória deixa de ser sua, não há garantia que você está acessando uma informação válida.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500);
+    // ...
+    free(p);
+    *p = 123; // Escrita em uma região de memória liberada! UB!
+}
+</code></pre>
+<p>No melhor dos casos, você vai tomar um <em>segmentation fault</em>. No pior, o conteudo de <code>*p</code> vai ser sobrescrito e você vai processar lixo, fazendo a execução dar erro em outra parte do código, ou pior: seu programa vai gerar um <em>output</em> inválido. Perdi duas noites de sono nesse tipo de erro uma vez.</p>
+<p>Em Rust, nem compila:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">fn main() {
+    let x = String::from(&quot;ferris!&quot;);
+    drop(x); // A propriedade da string foi movida para `drop`
+    // ...
+    println!(&quot;{x}&quot;);
+}
+</code></pre></pre>
+<h3 id="double-free"><a class="header" href="#double-free"><em>double free</em></a></h3>
+<p>O mesmo endereço de memória é liberado duas vezes.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500);
+    // ...
+    free(p);
+    // ...
+    free(p); // Mesmo endereço de memória liberado mais de uma vez! UB!
+}
+</code></pre>
+<p>Parece improvável de ocorrer, mas em uma refatoração pode ser fácil de introduzir.</p>
+<p>Em Rust, nem compila:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">fn main() {
+    let x = String::from(&quot;ferris!&quot;);
+    drop(x); // A propriedade da string foi movida para `drop`
+    // ...
+    drop(x); // Não dá pra passar para `drop` (ou qualquer fn) um valor que foi movido.
+}
+</code></pre></pre>
+<h3 id="dereferenciar-ponteiro-nulo"><a class="header" href="#dereferenciar-ponteiro-nulo">dereferenciar ponteiro nulo</a></h3>
+<p>O <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">erro de 1 bilhão de dólares</a>. Até linguagens de alto nível, com coletor de lixo, cometem.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500); // essa função pode retornar NULL caso a memória não tenha sido alocada com sucesso
+    // ...
+    *p = 123; // Escrita em NULL! UB!
+}
+</code></pre>
+<p>O lado bom desse erro é que ele normalmente aborta a execução em vez de processar dados inválidos. O lado ruim... essa é uma classe de erros totalmente evitável, mesmo sem <em>ownership</em>. Quanto mais cedo erros são corrigidos, menores são os custos. Se suas ferramentas impedem a introdução de certos tipos de defeitos, melhor ainda.</p>
+<p>Em Rust... Não existe referência nula. Nós usamos <code>Option&lt;T&gt;</code> para representar um valor do tipo <code>T</code> que pode estar presente (<code>Some(value)</code>) ou não (<code>None</code>).</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    let x: Option&lt;String&gt; = Some(String::from(&quot;ferris!&quot;));
+    // ...
+    // Não posso acessar a string diretamente sem antes checar se `x`, que é uma `Option&lt;String&gt;` é `Some(...)` ou `None`.
+    match x {
+        Some(value) =&gt; println!(&quot;{value}&quot;),
+        None =&gt; println!(&quot;Nada aqui!&quot;),
+    }
+}
+</code></pre></pre>
+<h3 id="vazamento-de-memória"><a class="header" href="#vazamento-de-memória">Vazamento de Memória</a></h3>
+<p>Tecnicamente, vazar memória não é considerado UB. Entretanto, isso consome recursos do sistema desnecessariamente.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500000000);
+    // Usando p...
+    // ...
+    // Não preciso mais de p, mas não liberei...
+    // ...
+}
+</code></pre>
+<p>Em Rust, a memória será liberada automaticamente quando o dono sai de escopo. Mesmo que vazar memória seja algo seguro de se fazer em Rust (i.e. alguém pode vazar memória explicitamente se quiser/precisar sem usar <code>unsafe</code>), a maior parte do tempo ela vai ser liberada por conta do conceito de propriedade.</p>
+<h3 id="acessar-uma-região-de-memória-inválida"><a class="header" href="#acessar-uma-região-de-memória-inválida">Acessar uma região de memória inválida</a></h3>
+<p>Ler ou escrever informações fora dos limites da memória que você alocou. A memória que você acessou não é sua, então qualquer coisa pode acontecer.</p>
+<pre><code class="language-c">void main() {
+    int *p = malloc(10 * sizeof(int));
+    p[10] = 42; // Escrevi na décima primeira posição! UB!
+}
+</code></pre>
+<p>Bem fácil de ocorrer com o uso de vetores.</p>
+<p>Em Rust, a execução sempre vai ser abortada, indicando onde ocorreu o acesso inválido à memória:</p>
+<pre><pre class="playground"><code class="language-rust should_panic edition2021">fn main() {
+    let x = vec![1, 2, 3];
+    // ...
+    let v = x[100_000]; // Com certeza nosso vetor não tem esse tamanho todo
+    println!(&quot;Um inteiro de x: {v}&quot;);
+}
+</code></pre></pre>
+<h3 id="manipular-memória-não-inicializada"><a class="header" href="#manipular-memória-não-inicializada">Manipular memória não inicializada</a></h3>
+<p>Memória não inicializada pode conter qualquer coisa. No melhor dos casos o conteúdo vai estar zerado. No pior, você vai ler qualquer coisa.</p>
+<pre><code class="language-c">void main() {
+    int *p;
+    // ...
+    int x = *p; // Dereferenciado p sem iniciazá-lo! UB!
+}
+</code></pre>
+<p>Em Rust, nem compila:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">fn main() {
+    let x: String;
+    // Oops, esquecemos de inicializar...
+    println!(&quot;{x}&quot;);
+}
+</code></pre></pre>
+<h2 id="conclusão"><a class="header" href="#conclusão">Conclusão</a></h2>
+<p>Provavelmente existem outros problemas de memória que eu não abordei. Felizmente, você dificilmente vai encontrá-los. Sim, é possível ter UB em Rust se você (ou sua dependência) usar <em>unsafe</em> incorretamente, mas é bastante provável que você não vai precisar desse recurso da linguagem.</p>
+<p>Não se preocupe em decorar as regras. O importante é entender o que cada uma delas significa. É trabalho do compilador garantir que elas estão sendo respeitadas.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="generics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="structured_programming/functions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="project_structure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="types_and_traits.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -155,10 +362,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="generics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="structured_programming/functions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="project_structure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="types_and_traits.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -168,6 +375,11 @@
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
