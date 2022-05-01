@@ -16,9 +16,9 @@
   - [Decisão](./structured_programming/decision.md)
   - [Repetição](./structured_programming/repetition.md)
   - [Funções](./structured_programming/functions.md)
+- [Propriedade e Empréstimo](./ownership_and_borrowing.md)
 - [Tipos e _Traits_](./types_and_traits.md)
 - [Código Genérico](./generics.md)
-- [Propriedade e Empréstimo](./ownership_and_borrowing.md)
 - [Estrutura de um Projeto](./project_structure.md)
 - [Programação Funcional](./functional_programming.md)
 
