@@ -1,3 +1,3 @@
-# Introdução
+# Introduction
 
-Comece por aqui. A ideia da introdução é te preparar para o restante do guia.
+Start here. The idea is to prepare you for the remainder of the book.
