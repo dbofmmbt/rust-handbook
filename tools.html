@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/roadmap.html"><strong aria-hidden="true">1.2.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.3.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.4.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html" class="active"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="basic_elements.html"><strong aria-hidden="true">3.</strong> Basic Elements</a></li><li class="chapter-item expanded "><a href="structured_programming/index.html"><strong aria-hidden="true">4.</strong> Structured Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="structured_programming/sequence.html"><strong aria-hidden="true">4.1.</strong> Sequence</a></li><li class="chapter-item expanded "><a href="structured_programming/decision.html"><strong aria-hidden="true">4.2.</strong> Decision</a></li><li class="chapter-item expanded "><a href="structured_programming/repetition.html"><strong aria-hidden="true">4.3.</strong> Repetition</a></li><li class="chapter-item expanded "><a href="structured_programming/functions.html"><strong aria-hidden="true">4.4.</strong> Functions</a></li></ol></li><li class="chapter-item expanded "><a href="ownership_and_borrowing.html"><strong aria-hidden="true">5.</strong> Ownership & Borrowing</a></li><li class="chapter-item expanded "><a href="types_and_traits.html"><strong aria-hidden="true">6.</strong> Types & Traits</a></li><li class="chapter-item expanded "><a href="generics.html"><strong aria-hidden="true">7.</strong> Generic Code</a></li><li class="chapter-item expanded "><a href="project_structure.html"><strong aria-hidden="true">8.</strong> Project's Structure</a></li><li class="chapter-item expanded "><a href="functional_programming.html"><strong aria-hidden="true">9.</strong> Functional Programming</a></li><li class="chapter-item expanded affix "><li class="part-title">Advanced Topics</li><li class="chapter-item expanded "><a href="advanced_topics.html"><strong aria-hidden="true">10.</strong> Advanced Topics</a></li><li class="chapter-item expanded affix "><li class="part-title">Training Projects</li><li class="chapter-item expanded "><a href="training_projects.html"><strong aria-hidden="true">11.</strong> Training Projects</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html" class="active"><strong aria-hidden="true">2.</strong> Tools</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,40 +145,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ferramentas"><a class="header" href="#ferramentas">Ferramentas</a></h1>
-<p>A seguir, temos uma lista com algumas das ferramentas que são muito importantes para a linguagem. Cada título de seção possui um link para a documentação da ferramenta em questão, caso você queira informações mais específicas.</p>
+                        <h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
+<p>Next, there's a list of a few tools which are very important for the language. Each section title has a link to that tool's documentation, in case you want more specific information.</p>
 <h2 id="rustup"><a class="header" href="#rustup"><a href="https://rustup.rs">Rustup</a></a></h2>
-<p>É o instalador do Rust. Com ele você consegue instalar e atualizar diversos componentes da linguagem. Alguns deles são descritos abaixo.</p>
+<p>Rust's installer. With it you can install and update many language tools. Some of them are described below.</p>
 <h2 id="rustc"><a class="header" href="#rustc"><a href="https://doc.rust-lang.org/rustc/index.html">Rustc</a></a></h2>
-<p>Esse é o compilador da linguagem. Normalmente ele não é utilizado diretamente, pois o Cargo simplifica diversas tarefas no desenvolvimento e lida com o compilador por nós.</p>
+<p>Language's compiler. Usually, it's not used directly, because <code>cargo</code> simplifies some development-related tasks and deals with the compiler for us.</p>
 <h2 id="cargo"><a class="header" href="#cargo"><a href="https://doc.rust-lang.org/cargo/index.html">Cargo</a></a></h2>
-<p>É o gerenciador de pacotes do Rust. Ele permite:</p>
+<p>Rust's build tool and package manager. It allows to:</p>
 <ul>
-<li>Criar um pacote com uma estrutura padronizada: <code>cargo new &lt;nome_do_projeto&gt;</code></li>
-<li>Realizar diversas atividades de desenvolvimento:
+<li>Create a package with a standardized structure: <code>cargo new &lt;project_name&gt;</code></li>
+<li>Perform some development activities:
 <ul>
-<li>Checar se o código compila: <code>cargo check</code></li>
-<li>Rodar testes: <code>cargo test</code></li>
-<li>Compilar o código: <code>cargo build</code></li>
-<li>Compilar <strong>e</strong> rodar o código: <code>cargo run</code></li>
+<li>Check if the code compiles: <code>cargo check</code></li>
+<li>Run tests: <code>cargo test</code></li>
+<li>Compile the code: <code>cargo build</code></li>
+<li>Compiled <strong>and</strong> run the code: <code>cargo run</code></li>
 </ul>
 </li>
-<li>Publicar um pacote para ser usado por outras pessoas: <code>cargo publish</code></li>
+<li>Publish a package to be used by other people: <code>cargo publish</code></li>
 </ul>
-<p>Tem muitas outras coisas que podem ser feitas através do cargo, mas esse já é um bom começo.</p>
+<p>There's many other things which can be done using <code>cargo</code>, but that's a good start.</p>
 <h2 id="rustfmt"><a class="header" href="#rustfmt"><a href="https://github.com/rust-lang/rustfmt">Rustfmt</a></a></h2>
-<p>É o formatador de código da linguagem. Praticamente todo projeto utiliza ele. Essa padronização diminui trabalho manual ao programar, facilita a entrada em bases de código novas, elimina discussões sobre estilo... As vantagens compensam (e muito) a redução de liberdade no estilo do código.</p>
-<p>Para utilizá-lo, basta rodar <code>cargo fmt</code> e todo o seu projeto será ajustado.</p>
+<p>Rust's code formatter. Virtually every project uses it. This standardization reduces repetitive work while coding, facilitates the onboarding on new code bases, ends discussions about style... The advantages compensate (by a lot) the freedom's reduction on the code style choice.</p>
+<p>To use it, just run <code>cargo fmt</code> and all your project will be formatted.</p>
 <h2 id="clippy"><a class="header" href="#clippy"><a href="https://github.com/rust-lang/rust-clippy">Clippy</a></a></h2>
-<p>É o <em>linter</em> da linguagem, que é basicamente uma ferramenta que analisa seu código e é capaz de oferecer sugestões para tentar torná-lo melhor. Principalmente ao começar na linguagem, <code>cargo clippy</code> pode te mostrar formas mais idiomáticas na escrita do código, além de identificar erros de programação comuns.</p>
+<p>Language's linter, which is basically a tool which analyzes your code and is capable of offering suggestions to try to make it better. Specially in the beginning, <code>cargo clippy</code> can show you more idiomatic ways to write code. Besides that, it can also identify some common programming mistakes.</p>
 <h2 id="rustdoc"><a class="header" href="#rustdoc"><a href="https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html">Rustdoc</a></a></h2>
-<p>Rust é reconhecida por seu ecossistema ter uma documentação acima da média e isso é fruto de um excelente suporte à geração de documentação através do <code>rustdoc</code>. Ao rodar <code>cargo doc</code>, a documentação do seu projeto e de suas dependências são construídas e todos têm acesso a uma forma padronizada de documentação, reduzindo o peso da atividade e aumentando a produtividade de quem desenvolve e depende de pacotes de outras pessoas.</p>
-<h2 id="suporte-de-ide"><a class="header" href="#suporte-de-ide">Suporte de IDE</a></h2>
-<p>Uma linguagem moderna <strong>precisa</strong> ter um suporte adequado para a interação com o código fonte. Embora Rust seja uma linguagem nova, já existem projetos muito bons para oferecer esse suporte a vários editores.</p>
+<p>Rust is known by its ecosystem having above-average documentation and this is due to the excellent documentation generation support we have from <code>rustdoc</code>. By running <code>cargo doc</code>, the documentation from your project and your dependencies are built and everyone has access to them in an standardized way, reducing the weight of this activity and improving the productivity of those who write or read documentation, which is basically everyone.</p>
+<h2 id="ide-support"><a class="header" href="#ide-support">IDE Support</a></h2>
+<p>A modern language <strong>needs</strong> to have good support to interact with source code. Although Rust is a new language, there are very good projects to offer this support to code editors.</p>
 <h3 id="rust-analyzer"><a class="header" href="#rust-analyzer"><a href="https://rust-analyzer.github.io/">Rust-Analyzer</a></a></h3>
-<p>É o servidor de linguagem que alimenta vários editores de texto, como VS Code e Vim. No VS Code, basta instalar a extensão <code>rust-analyzer</code> para ter o suporte.</p>
+<p>It's the Language Server which powers many text editors, like VS Code and Vim. On VS Code, just need to install the <code>rust-lang.rust-analyzer</code> extension to have great support.</p>
 <h3 id="intellij-rust"><a class="header" href="#intellij-rust"><a href="https://www.jetbrains.com/pt-br/rust/">Intellij Rust</a></a></h3>
-<p>Para as IDEs baseadas no Intellij, existe um plugin desenvolvido abertamente pela JetBrains que traz suporte a Rust aos seus editores. Basta instalar o plugin e contar com suporte na sua IDE.</p>
+<p>For Intellij-based IDEs, there's a plugin openly developed by JetBrains which brings Rust support for their editors. Just go to the plugins manager and install it to use Rust on Intellij.</p>
 
                     </main>
 
@@ -186,9 +186,6 @@
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="introduction/hello_world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="basic_elements.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
                     </nav>
@@ -198,9 +195,6 @@
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="introduction/hello_world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="basic_elements.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
