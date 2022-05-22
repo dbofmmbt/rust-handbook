@@ -1,7 +1,7 @@
-# Instalação
+# Installation
 
-A forma mais recomendada para a instalação é através da ferramenta `rustup`, que cuida de instalações e atualizações dos componentes básicos da linguagem, como o `rustc`, `cargo` e `clippy`.
+The most recommended way to install Rust is by using `rustup`, which takes care of the installations and updates of the language's official tools, such as `rustc`, `cargo`, and `clippy`.
 
-Se você decidiu instalar a linguagem na sua máquina, basta seguir as instruções no site do [rustup](https://rustup.rs) que deve dar tudo certo. Caso você use Windows, recomendo dar uma olhada nessa página de [setup da linguagem Rust no Windows](https://docs.microsoft.com/pt-br/windows/dev-environment/rust/setup), da Microsoft, pois talvez você precise instalar dependências adicionais.
+If you decided to install the language on your machine, just follow the instructions in the [rustup's website](https://rustup.rs) and you'll probably be good to go. In case you use Windows, I recommend you to take a look at the [Setup Rust for Windows](https://docs.microsoft.com/pt-br/windows/dev-environment/rust/setup) page, as you may need to install additional dependencies.
 
-Caso você queira fazer pequenos experimentos sem ter que instalar a linguagem, uma boa alternativa é o uso do [playground](https://play.rust-lang.org/), que é um editor online que permite compilar e rodar códigos simples. Ele é bom também para compartilhar trechos de código com outras pessoas para tirar dúvidas específicas.
+In case you want to do small experiments without having to install the language, a good alternative is to use [the playground](https://play.rust-lang.org/), which is an online editor that allows you to compile and run simple code. It's also a good way to share code snippets with other people in case you need help on specific questions.
