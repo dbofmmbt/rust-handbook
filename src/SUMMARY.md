@@ -1,31 +1,31 @@
-# Sumário
+# Summary
 
-[Sobre esse Guia](./about.md)
+[About the handbook](./about.md)
 
-# Guia
+# Guide
 
-- [Introdução](./introduction/README.md)
-  - [Pré-requisitos](./introduction/prerequisites.md)
+- [Introduction](./introduction/README.md)
+  - [Pre-requisites](./introduction/prerequisites.md)
   - [Roadmap](./introduction/roadmap.md)
-  - [Instalação](./introduction/installation.md)
-  - [Olá, Mundo!](./introduction/hello_world.md)
-- [Ferramentas](./tools.md)
-- [Elementos Básicos](./basic_elements.md)
-- [Programação Estruturada](./structured_programming/README.md)
-  - [Sequência](./structured_programming/sequence.md)
-  - [Decisão](./structured_programming/decision.md)
-  - [Repetição](./structured_programming/repetition.md)
-  - [Funções](./structured_programming/functions.md)
-- [Propriedade e Empréstimo](./ownership_and_borrowing.md)
-- [Tipos e _Traits_](./types_and_traits.md)
-- [Código Genérico](./generics.md)
-- [Estrutura de um Projeto](./project_structure.md)
-- [Programação Funcional](./functional_programming.md)
+  - [Installation](./introduction/installation.md)
+  - [Hello, World!](./introduction/hello_world.md)
+- [Tools](./tools.md)
+- [Basic Elements](./basic_elements.md)
+- [Structured Programming](./structured_programming/README.md)
+  - [Sequence](./structured_programming/sequence.md)
+  - [Decision](./structured_programming/decision.md)
+  - [Repetition](./structured_programming/repetition.md)
+  - [Functions](./structured_programming/functions.md)
+- [Ownership & Borrowing](./ownership_and_borrowing.md)
+- [Types & Traits](./types_and_traits.md)
+- [Generic Code](./generics.md)
+- [Project's Structure](./project_structure.md)
+- [Functional Programming](./functional_programming.md)
 
-# Tópicos Avançados
+# Advanced Topics
 
-- [Tópicos Avançados](./advanced_topics.md)
+- [Advanced Topics](./advanced_topics.md)
 
-# Projetos de Treino
+# Training Projects
 
-- [Projetos de Treino](./training_projects.md)
+- [Training Projects](./training_projects.md)
