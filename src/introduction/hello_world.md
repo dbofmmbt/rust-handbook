@@ -1,23 +1,23 @@
-# Olá, Mundo
+# Hello, World
 
-É uma tradição, ao aprender uma linguagem de programação nova, a apresentação do `hello, world!` da linguagem, que consiste em exibir uma mensagem no terminal com os dizeres "Olá, Mundo!".
+It's a tradition, when starting to learn a new programming language, to present a program which consists of showing a `hello, world!` message on the terminal.
 
-Então vamos lá:
+Here we go:
 
 ```rust
 fn main() {
-    println!("Olá, Mundo!");
+    println!("Hello, World!");
 }
 ```
 
-Você pode rodar esse código direto do guia. Basta clicar no botão "play" no canto superior direito da caixa que contém o código.
+You can run this code straight from the book. Just click in the "play" button in the top-right corner of the box which contains the code.
 
-Só com esse pequeno trecho de código já é possível ter contato com vários elementos da linguagem, que vamos ver com detalhes posteriormente. Não se preocupe em entendê-los a fundo agora.
+Just with this little piece of code it's possible to get in touch with a lot of elements of the language, which we'll see with details later. Don't worry trying to understand them deeply now.
 
-- A função `main` que define o ponto de entrada da execução. É onde o código da sua aplicação começa a rodar.
-- Blocos são definidos com um par de `{` e `}`. Algumas linguagens, como Python, usam identação. Outras usam palavras-chave como `begin` e `end`.
-- `println!` é uma macro. Posso dizer isso por conta do `!` no final. No momento da compilação, as macros são processadas para geração de código, que é inserido no local onde foram chamadas. Não se preocupe em entender macros agora, só saiba que usaremos algumas antes de uma explicação mais aprofundada.
-- `"Olá, Mundo!"`, falando de forma bem simplificada, pode ser entendida como um literal de texto. Em Rust, existem alguns tipos diferentes de texto (e.g. `String`, `str`) e mais para frente vai ficar claro o porquê.
-- `println!("Olá, Mundo!");` é uma declaração que chama uma macro passando um texto como argumento e tem como efeito exibir um conteúdo no terminal (com quebra de linha). Declarações em Rust terminam com `;`. Existem também as expressões, que são processadas em tempo de execução e são reduzidas a um valor. Por exemplo: `2 + 2` é reduzido para o valor inteiro `4`.
+- The `main` function defines the execution's entry point. That's where your application's code starts to run.
+- Blocks are defined with a pair of `{` and `}`. Some languages, such as Python, use indentation. Others use keywords such as `begin` and `end`.
+- `println!` is a macro. I can say that because of the `!` in the end. When your program is compiled, macros are processed for code generation, which is inserted where they've been called. Don't worry about understanding macros now, just know that we'll use some of them before a deeper explanation.
+- `"Hello, World!"`, in a simplified view, can be seen as a text literal. In Rust, there are a few different types of text (e.g. `String`, `str`), each with its use case. It turns out that strings are more complicated than most programmers think, and Rust chose to be explicit about it.
+- `println!("Hello, World!");` is a statement which calls a macro passing a text as argument and has the effect of showing a content in the terminal (with a line break in the end). Statements in Rust end with `;`. There are expressions too, which are processed at runtime and reduced to a value. For example: `2 + 2` is reduced to the integer value `4`.
 
-Acho que essas informações já são um bom começo para um "Hello, world!". Agora sim começamos com o pé direito!
+I think that these information are a good start for a "hello, world!". Now we're starting on the right foot!

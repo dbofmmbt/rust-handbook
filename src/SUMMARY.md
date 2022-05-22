@@ -8,7 +8,7 @@
   - [Pre-requisites](./introduction/prerequisites.md)
   \<!-- - [Roadmap](./introduction/roadmap.md) -->
   - [Installation](./introduction/installation.md)
-  \<!-- - [Hello, World!](./introduction/hello_world.md) -->
+  - [Hello, World!](./introduction/hello_world.md)
 <!-- - [Tools](./tools.md) -->
 <!-- - [Basic Elements](./basic_elements.md) -->
 <!-- - [Structured Programming](./structured_programming/README.md) -->
