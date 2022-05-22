@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="../introduction/roadmap.html"><strong aria-hidden="true">1.2.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.3.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/hello_world.html" class="active"><strong aria-hidden="true">1.4.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="../tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="../basic_elements.html"><strong aria-hidden="true">3.</strong> Basic Elements</a></li><li class="chapter-item expanded "><a href="../structured_programming/index.html"><strong aria-hidden="true">4.</strong> Structured Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../structured_programming/sequence.html"><strong aria-hidden="true">4.1.</strong> Sequence</a></li><li class="chapter-item expanded "><a href="../structured_programming/decision.html"><strong aria-hidden="true">4.2.</strong> Decision</a></li><li class="chapter-item expanded "><a href="../structured_programming/repetition.html"><strong aria-hidden="true">4.3.</strong> Repetition</a></li><li class="chapter-item expanded "><a href="../structured_programming/functions.html"><strong aria-hidden="true">4.4.</strong> Functions</a></li></ol></li><li class="chapter-item expanded "><a href="../ownership_and_borrowing.html"><strong aria-hidden="true">5.</strong> Ownership & Borrowing</a></li><li class="chapter-item expanded "><a href="../types_and_traits.html"><strong aria-hidden="true">6.</strong> Types & Traits</a></li><li class="chapter-item expanded "><a href="../generics.html"><strong aria-hidden="true">7.</strong> Generic Code</a></li><li class="chapter-item expanded "><a href="../project_structure.html"><strong aria-hidden="true">8.</strong> Project's Structure</a></li><li class="chapter-item expanded "><a href="../functional_programming.html"><strong aria-hidden="true">9.</strong> Functional Programming</a></li><li class="chapter-item expanded affix "><li class="part-title">Advanced Topics</li><li class="chapter-item expanded "><a href="../advanced_topics.html"><strong aria-hidden="true">10.</strong> Advanced Topics</a></li><li class="chapter-item expanded affix "><li class="part-title">Training Projects</li><li class="chapter-item expanded "><a href="../training_projects.html"><strong aria-hidden="true">11.</strong> Training Projects</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="../introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../introduction/hello_world.html" class="active"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,23 +145,23 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="olá-mundo"><a class="header" href="#olá-mundo">Olá, Mundo</a></h1>
-<p>É uma tradição, ao aprender uma linguagem de programação nova, a apresentação do <code>hello, world!</code> da linguagem, que consiste em exibir uma mensagem no terminal com os dizeres &quot;Olá, Mundo!&quot;.</p>
-<p>Então vamos lá:</p>
+                        <h1 id="hello-world"><a class="header" href="#hello-world">Hello, World</a></h1>
+<p>It's a tradition, when starting to learn a new programming language, to present a program which consists of showing a <code>hello, world!</code> message on the terminal.</p>
+<p>Here we go:</p>
 <pre><pre class="playground"><code class="language-rust edition2021">fn main() {
-    println!(&quot;Olá, Mundo!&quot;);
+    println!(&quot;Hello, World!&quot;);
 }
 </code></pre></pre>
-<p>Você pode rodar esse código direto do guia. Basta clicar no botão &quot;play&quot; no canto superior direito da caixa que contém o código.</p>
-<p>Só com esse pequeno trecho de código já é possível ter contato com vários elementos da linguagem, que vamos ver com detalhes posteriormente. Não se preocupe em entendê-los a fundo agora.</p>
+<p>You can run this code straight from the book. Just click in the &quot;play&quot; button in the top-right corner of the box which contains the code.</p>
+<p>Just with this little piece of code it's possible to get in touch with a lot of elements of the language, which we'll see with details later. Don't worry trying to understand them deeply now.</p>
 <ul>
-<li>A função <code>main</code> que define o ponto de entrada da execução. É onde o código da sua aplicação começa a rodar.</li>
-<li>Blocos são definidos com um par de <code>{</code> e <code>}</code>. Algumas linguagens, como Python, usam identação. Outras usam palavras-chave como <code>begin</code> e <code>end</code>.</li>
-<li><code>println!</code> é uma macro. Posso dizer isso por conta do <code>!</code> no final. No momento da compilação, as macros são processadas para geração de código, que é inserido no local onde foram chamadas. Não se preocupe em entender macros agora, só saiba que usaremos algumas antes de uma explicação mais aprofundada.</li>
-<li><code>&quot;Olá, Mundo!&quot;</code>, falando de forma bem simplificada, pode ser entendida como um literal de texto. Em Rust, existem alguns tipos diferentes de texto (e.g. <code>String</code>, <code>str</code>) e mais para frente vai ficar claro o porquê.</li>
-<li><code>println!(&quot;Olá, Mundo!&quot;);</code> é uma declaração que chama uma macro passando um texto como argumento e tem como efeito exibir um conteúdo no terminal (com quebra de linha). Declarações em Rust terminam com <code>;</code>. Existem também as expressões, que são processadas em tempo de execução e são reduzidas a um valor. Por exemplo: <code>2 + 2</code> é reduzido para o valor inteiro <code>4</code>.</li>
+<li>The <code>main</code> function defines the execution's entry point. That's where your application's code starts to run.</li>
+<li>Blocks are defined with a pair of <code>{</code> and <code>}</code>. Some languages, such as Python, use indentation. Others use keywords such as <code>begin</code> and <code>end</code>.</li>
+<li><code>println!</code> is a macro. I can say that because of the <code>!</code> in the end. When your program is compiled, macros are processed for code generation, which is inserted where they've been called. Don't worry about understanding macros now, just know that we'll use some of them before a deeper explanation.</li>
+<li><code>&quot;Hello, World!&quot;</code>, in a simplified view, can be seen as a text literal. In Rust, there are a few different types of text (e.g. <code>String</code>, <code>str</code>), each with its use case. It turns out that strings are more complicated than most programmers think, and Rust chose to be explicit about it.</li>
+<li><code>println!(&quot;Hello, World!&quot;);</code> is a statement which calls a macro passing a text as argument and has the effect of showing a content in the terminal (with a line break in the end). Statements in Rust end with <code>;</code>. There are expressions too, which are processed at runtime and reduced to a value. For example: <code>2 + 2</code> is reduced to the integer value <code>4</code>.</li>
 </ul>
-<p>Acho que essas informações já são um bom começo para um &quot;Hello, world!&quot;. Agora sim começamos com o pé direito!</p>
+<p>I think that these information are a good start for a &quot;hello, world!&quot;. Now we're starting on the right foot!</p>
 
                     </main>
 
@@ -169,9 +169,6 @@
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="../introduction/installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a rel="next" href="../tools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
                     </nav>
@@ -181,9 +178,6 @@
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="../introduction/installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="../tools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

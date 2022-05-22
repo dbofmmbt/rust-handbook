@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -165,6 +165,23 @@
 <p>The most recommended way to install Rust is by using <code>rustup</code>, which takes care of the installations and updates of the language's official tools, such as <code>rustc</code>, <code>cargo</code>, and <code>clippy</code>.</p>
 <p>If you decided to install the language on your machine, just follow the instructions in the <a href="https://rustup.rs">rustup's website</a> and you'll probably be good to go. In case you use Windows, I recommend you to take a look at the <a href="https://docs.microsoft.com/pt-br/windows/dev-environment/rust/setup">Setup Rust for Windows</a> page, as you may need to install additional dependencies.</p>
 <p>In case you want to do small experiments without having to install the language, a good alternative is to use <a href="https://play.rust-lang.org/">the playground</a>, which is an online editor that allows you to compile and run simple code. It's also a good way to share code snippets with other people in case you need help on specific questions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello, World</a></h1>
+<p>It's a tradition, when starting to learn a new programming language, to present a program which consists of showing a <code>hello, world!</code> message on the terminal.</p>
+<p>Here we go:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    println!(&quot;Hello, World!&quot;);
+}
+</code></pre></pre>
+<p>You can run this code straight from the book. Just click in the &quot;play&quot; button in the top-right corner of the box which contains the code.</p>
+<p>Just with this little piece of code it's possible to get in touch with a lot of elements of the language, which we'll see with details later. Don't worry trying to understand them deeply now.</p>
+<ul>
+<li>The <code>main</code> function defines the execution's entry point. That's where your application's code starts to run.</li>
+<li>Blocks are defined with a pair of <code>{</code> and <code>}</code>. Some languages, such as Python, use indentation. Others use keywords such as <code>begin</code> and <code>end</code>.</li>
+<li><code>println!</code> is a macro. I can say that because of the <code>!</code> in the end. When your program is compiled, macros are processed for code generation, which is inserted where they've been called. Don't worry about understanding macros now, just know that we'll use some of them before a deeper explanation.</li>
+<li><code>&quot;Hello, World!&quot;</code>, in a simplified view, can be seen as a text literal. In Rust, there are a few different types of text (e.g. <code>String</code>, <code>str</code>), each with its use case. It turns out that strings are more complicated than most programmers think, and Rust chose to be explicit about it.</li>
+<li><code>println!(&quot;Hello, World!&quot;);</code> is a statement which calls a macro passing a text as argument and has the effect of showing a content in the terminal (with a line break in the end). Statements in Rust end with <code>;</code>. There are expressions too, which are processed at runtime and reduced to a value. For example: <code>2 + 2</code> is reduced to the integer value <code>4</code>.</li>
+</ul>
+<p>I think that these information are a good start for a &quot;hello, world!&quot;. Now we're starting on the right foot!</p>
 
                     </main>
 
