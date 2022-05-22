@@ -1,11 +1,11 @@
-# Guia para entender Rust
+# Rust Handbook :rocket
 
-O objetivo deste guia é orientar os estudos da linguagem: explicar bem o que é importante que todos entendam e oferecer referências de alta qualidade para o aprendizado de assuntos mais específicos ou avançados.
+The objective of this book is to offer guidance on the study of the language: to explain well what is important for everyone to know and offer high-quality references for the learning of more specific or advanced topics.
 
-Saiba que esse projeto ainda é um trabalho em progresso. A versão mais recente do guia pode ser acessada aqui: https://dbofmmbt.github.io/guia-para-entender-rust/
+Beware that this project is a work in progress. The most recent version of the handbook can be found here: <https://dbofmmbt.github.io/rust-handbook/>
 
-Sugestões e _feedbacks_ são sempre bem-vindos! Fique à vontade para abrir uma _issue_ ou entrar em contato pelo Discord da comunidade.
+Suggestions and feedback are always welcome! Feel free to open an issue or get in touch through Rust Community's Discord.
 
-## Contribuindo
+## Contributing
 
-Este livro é feito com [mdBook](https://github.com/rust-lang/mdBook). Suas instruções de instalação são suficientes para contribuir com essa projeto. Para pequenas correções como erros de digitação ou links quebrados, um Pull Request pode ser submetido diretamente. Caso seja uma mudança no conteúdo, peço para abrir uma _issue_ antes.
+This book is made with [mdBook](https://github.com/rust-lang/mdBook). Its installation instructions are enough to contribute to this project. For small corrections like typos or broken links, a Pull Request can be submitted directly. In case you want to change something in the content, please open an issue with the proposal before.
