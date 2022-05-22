@@ -1,7 +1,7 @@
 [book]
-description = "Guia para orientar pessoas desenvolvedoras no aprendizado de Rust"
+description = "Book to guide developers in their Rust learning"
 authors = ["Eduardo Canellas de Oliveira"]
-language = "pt-br"
+language = "en"
 multilingual = false
 src = "src"
 
@@ -10,7 +10,7 @@ edition = "2021"
 
 [output.html]
 default-theme = "ayu"
-git-repository-url = "https://github.com/dbofmmbt/guia-para-entender-rust"
+git-repository-url = "https://github.com/dbofmmbt/rust-handbook"
 
 [output.html.playground]
 editable = true
