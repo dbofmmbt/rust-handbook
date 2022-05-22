@@ -1,5 +1,3 @@
 # Roadmap
 
-<!-- TODO montar roadmap -->
-
-A ideia dessa página é descrever o roteiro do guia. Explicando de forma sucinta cada seção. Como o guia ainda está no começo, vou deixar para fazer isso depois.
+The idea of this page is to give an overview of the guide, briefly explaining each section. As the guide is still WIP, I will leave it for later.

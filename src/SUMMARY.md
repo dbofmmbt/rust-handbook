@@ -6,7 +6,7 @@
 
 - [Introduction](./introduction/README.md)
   - [Pre-requisites](./introduction/prerequisites.md)
-  - [Roadmap](./introduction/roadmap.md)
+  <!-- - [Roadmap](./introduction/roadmap.md) TODO write the roadmap -->
   - [Installation](./introduction/installation.md)
   - [Hello, World!](./introduction/hello_world.md)
 - [Tools](./tools.md)
