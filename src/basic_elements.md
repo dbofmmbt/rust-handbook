@@ -1,84 +1,84 @@
-# Elementos Básicos
+# Basic Elements
 
-Os elementos abaixo, embora simples, são um ponto de partida importante para programar. A maioria desses conceitos estão presentes em outras linguagens.
+The elements below, although simple, are an important starting point to code. Most of these concepts are present in other languages.
 
-## Tipos primitivos
+## Primitives Types
 
-Essa seção não é exaustiva por questões de simplicidade. Existem outros tipos primitivos além desses e você pode descobrir sobre todos na [seção de tipos primitivos da documentação da linguagem](https://doc.rust-lang.org/std/index.html#primitives).
+This section is non-exhaustive by a matter of simplicity. There are other primitive types beyond these and you may find information about them on the [primitive types section in the standard library's documentation](https://doc.rust-lang.org/std/index.html#primitives).
 
-### **Inteiros**
+### **Integers**
 
-- Com sinal: `i8`, `i16`, `i32`, `i64`, `i128` e `isize`. (`i` de _integer_).
+- Signed: `i8`, `i16`, `i32`, `i64`, `i128` e `isize`. (`i` from _integer_).
   - e.g.: `0`, `-5`, `1_000_000i32`
-- Sem sinal: `u8`, `u16`, `u32`, `u64`, `u128` e `usize`. (`u` de _unsigned_, sem sinal).
+- Unsigned: `u8`, `u16`, `u32`, `u64`, `u128` e `usize`.
   - e.g.: `10`, `42`, `1_000_000usize`
 
-O número no tipo representa quantos bits são usados pelo inteiro. Isso tem relação direta com o intervalo de valores que são possíveis de representar. Por exemplo, `u8` consegue representar um intervalo de 2<sup>8</sup> valores.
+The number in the type indicates how many bits are used by the integer. This has direct relation with the range of values which are possible to represent on that type. For example, `u8` can only represent a range of 2<sup>8</sup> values.
 
 ### **Floats**
 
-`f32` e `f64`. Exemplos: `1.0`, `-15.50f32`
+`f32` e `f64`. Examples: `1.0`, `-15.50f32`
 
-Números flutuantes permitem representar números decimais (com uma imprecisão inerente da representação de ponto flutuante no _hardware_). _Floats_, conforme o padrão IEEE-754, podem ser um pouco mais trabalhosos de lidar do que você estava acostumado em outras linguagens. Rust deixa explícito possíveis tiros no pé que poderiam passar despercebidos.
+Floating point numbers can represent decimal numbers (with an impression inherent of the floating point representation in the _hardware_). _Floats_, as defined by IEEE-754, can be more a bit more painful to work with than what you're used to in other languages. Rust makes explicit some footguns that could pass unnoticed.
 
 ### **bool**
 
-Pode assumir os valores `true` e `false`.
+Can be `true` or `false`.
 
 ### Unit
 
-Esse é o tipo do `()`, que é o único valor desse tipo. Ele é usado em locais em que não há um valor significativo definido. Por exemplo: funções que "não retornam nada" na verdade retornam `()`.
+This is the type of the empty tuple `()`, which is the only value of this type. It is used in places where there's no meaningful value defined. For example: functions which "return nothing" actually return `()`.
 
-## Variáveis
+## Variables
 
-Uma variável guarda um valor e ela pode ser manipulada através de seu identificador. Em Rust, utilizamos o `let` para definir variáveis. `let` trabalha com casamento de padrões, mas por enquanto não iremos tirar proveito desse recurso para manter as coisas simples.
+A variable stores a value and can be manipulated through its identifier. In Rust, we use `let` to define variables. `let` works with pattern matching, but for now we're not going to take advantage of it to keep things simple.
 
-Abaixo segue o esqueleto de declaração e associação (_binding_) de uma variável.
+Below there's the skeleton of declaration and binding of variables.
 
 ```rust,ignore
-// Declaração
-let <identificador>: <tipo>;
+// Declaration
+let <identifier>: <type>;
 
-// Declaração com associação de valor
-let <identificador>[: <tipo>] = <expressão>;
+// Declaration with value binding
+let <identifier>[: <type>] = <expression>;
 ```
 
-As variáveis em Rust são imutáveis por padrão. Caso você tente mudar o conteúdo de uma variável imutável, o compilador reclamará:
+Rust variables are immutable by default. If you try to change an immutable variable's content, the compiler will complain:
 
 ```rust,compile_fail
-// Se você tentar rodar, verá que esse código não compila.
+// If you try to run it, You'll see that this code doesn't compile.
 let x = 5;
 x = 10;
 ```
 
-Como nosso querido compilador sugere, basta adicionar `mut` antes do identificador para tornar a variável mutável.
+As our dear compiler suggests, just add `mut` before the identifier to make the variable mutable.
 
 ```rust
-// Agora vai!
+// It'll work this time!
 let mut x = 5;
 x = 10;
 assert_eq!(x, 10);
 ```
 
-É importante notar que Rust possui inferência de tipos. Isto é, ela tenta identificar tipos não declarados através dos tipos das expressões utilizadas no código. Por exemplo:
+It's important to note that Rust has type inference. This means that it tries to identify undeclared types by using the types of the expressions present in the code. For example:
 
 ```rust,ignore
 let is_raining = true;
 ```
 
-Não é obrigatório anotar o tipo. Já que `true` é do tipo `bool`, `is_raining` também vai ser.
+It's not necessary to annotate the type. As `true` is of type `bool`, `is_raining` will also be.
 
-## Operadores
+## Operators
 
-Uma lista completa pode ser encontrada [neste apêndice do livro do Rust](https://doc.rust-lang.org/book/appendix-02-operators.html).
+A complete list can be found [on this Rust Book appendix](https://doc.rust-lang.org/book/appendix-02-operators.html).
 
-### Aritméticos
+### Arithmetic
 
 `+`, `-`, `/`, `*`, `%`
 
-Caso você não conheça, `%` é o resto de divisão do primeiro número pelo segundo.
+In case you don't know, `%` is the division remainder of the first number by the second one.
 
-Esses operadores podem ser usados em conjunto com atribuição. Por exemplo:
+These operators can be used together with assignment. For example:
 
 ```rust
 let mut x = 2 + 2;
@@ -86,18 +86,18 @@ x += 1;
 assert_eq!(x, 5);
 ```
 
-### Lógicos
+### Logic
 
-- Negação:`!`
-- E lógico: `&&`
-- OU lógico: `||`
+- Negation: `!`
+- logic AND: `&&`
+- logic OR: `||`
 
 ```rust
 let x = true && !false;
 assert_eq!(x, true);
 ```
 
-### Relacionais
+### Relational
 
 `<`, `<=`, `==`, `!=`, `>=`, `>`
 

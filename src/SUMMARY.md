@@ -10,7 +10,7 @@
   - [Installation](./introduction/installation.md)
   - [Hello, World!](./introduction/hello_world.md)
 - [Tools](./tools.md)
-<!-- - [Basic Elements](./basic_elements.md) -->
+- [Basic Elements](./basic_elements.md)
 <!-- - [Structured Programming](./structured_programming/README.md) -->
   <!-- - [Sequence](./structured_programming/sequence.md) -->
   <!-- - [Decision](./structured_programming/decision.md) -->
