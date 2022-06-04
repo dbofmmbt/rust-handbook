@@ -1,6 +1,6 @@
 # Rust Handbook 🚀
 
-The objective of this book is to offer guidance on the study of the language: to explain well what is important for everyone to know and offer high-quality references for the learning of more specific or advanced topics.
+The goal of this book is to offer guidance on the study of the language: to explain well what is important for everyone to know and offer high-quality references for the learning of more specific or advanced topics.
 
 Beware that this project is a work in progress. The most recent version of the handbook can be found here: <https://dbofmmbt.github.io/rust-handbook/>
 
