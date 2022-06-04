@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/roadmap.html"><strong aria-hidden="true">1.2.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.3.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.4.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="basic_elements.html" class="active"><strong aria-hidden="true">3.</strong> Basic Elements</a></li><li class="chapter-item expanded "><a href="structured_programming/index.html"><strong aria-hidden="true">4.</strong> Structured Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="structured_programming/sequence.html"><strong aria-hidden="true">4.1.</strong> Sequence</a></li><li class="chapter-item expanded "><a href="structured_programming/decision.html"><strong aria-hidden="true">4.2.</strong> Decision</a></li><li class="chapter-item expanded "><a href="structured_programming/repetition.html"><strong aria-hidden="true">4.3.</strong> Repetition</a></li><li class="chapter-item expanded "><a href="structured_programming/functions.html"><strong aria-hidden="true">4.4.</strong> Functions</a></li></ol></li><li class="chapter-item expanded "><a href="ownership_and_borrowing.html"><strong aria-hidden="true">5.</strong> Ownership & Borrowing</a></li><li class="chapter-item expanded "><a href="types_and_traits.html"><strong aria-hidden="true">6.</strong> Types & Traits</a></li><li class="chapter-item expanded "><a href="generics.html"><strong aria-hidden="true">7.</strong> Generic Code</a></li><li class="chapter-item expanded "><a href="project_structure.html"><strong aria-hidden="true">8.</strong> Project's Structure</a></li><li class="chapter-item expanded "><a href="functional_programming.html"><strong aria-hidden="true">9.</strong> Functional Programming</a></li><li class="chapter-item expanded affix "><li class="part-title">Advanced Topics</li><li class="chapter-item expanded "><a href="advanced_topics.html"><strong aria-hidden="true">10.</strong> Advanced Topics</a></li><li class="chapter-item expanded affix "><li class="part-title">Training Projects</li><li class="chapter-item expanded "><a href="training_projects.html"><strong aria-hidden="true">11.</strong> Training Projects</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="basic_elements.html" class="active"><strong aria-hidden="true">3.</strong> Basic Elements</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,69 +145,69 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="elementos-básicos"><a class="header" href="#elementos-básicos">Elementos Básicos</a></h1>
-<p>Os elementos abaixo, embora simples, são um ponto de partida importante para programar. A maioria desses conceitos estão presentes em outras linguagens.</p>
-<h2 id="tipos-primitivos"><a class="header" href="#tipos-primitivos">Tipos primitivos</a></h2>
-<p>Essa seção não é exaustiva por questões de simplicidade. Existem outros tipos primitivos além desses e você pode descobrir sobre todos na <a href="https://doc.rust-lang.org/std/index.html#primitives">seção de tipos primitivos da documentação da linguagem</a>.</p>
-<h3 id="inteiros"><a class="header" href="#inteiros"><strong>Inteiros</strong></a></h3>
+                        <h1 id="basic-elements"><a class="header" href="#basic-elements">Basic Elements</a></h1>
+<p>The elements below, although simple, are an important starting point to code. Most of these concepts are present in other languages.</p>
+<h2 id="primitives-types"><a class="header" href="#primitives-types">Primitives Types</a></h2>
+<p>This section is non-exhaustive by a matter of simplicity. There are other primitive types beyond these and you may find information about them on the <a href="https://doc.rust-lang.org/std/index.html#primitives">primitive types section in the standard library's documentation</a>.</p>
+<h3 id="integers"><a class="header" href="#integers"><strong>Integers</strong></a></h3>
 <ul>
-<li>Com sinal: <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code> e <code>isize</code>. (<code>i</code> de <em>integer</em>).
+<li>Signed: <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code> e <code>isize</code>. (<code>i</code> from <em>integer</em>).
 <ul>
 <li>e.g.: <code>0</code>, <code>-5</code>, <code>1_000_000i32</code></li>
 </ul>
 </li>
-<li>Sem sinal: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code> e <code>usize</code>. (<code>u</code> de <em>unsigned</em>, sem sinal).
+<li>Unsigned: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code> e <code>usize</code>.
 <ul>
 <li>e.g.: <code>10</code>, <code>42</code>, <code>1_000_000usize</code></li>
 </ul>
 </li>
 </ul>
-<p>O número no tipo representa quantos bits são usados pelo inteiro. Isso tem relação direta com o intervalo de valores que são possíveis de representar. Por exemplo, <code>u8</code> consegue representar um intervalo de 2<sup>8</sup> valores.</p>
+<p>The number in the type indicates how many bits are used by the integer. This has direct relation with the range of values which are possible to represent on that type. For example, <code>u8</code> can only represent a range of 2<sup>8</sup> values.</p>
 <h3 id="floats"><a class="header" href="#floats"><strong>Floats</strong></a></h3>
-<p><code>f32</code> e <code>f64</code>. Exemplos: <code>1.0</code>, <code>-15.50f32</code></p>
-<p>Números flutuantes permitem representar números decimais (com uma imprecisão inerente da representação de ponto flutuante no <em>hardware</em>). <em>Floats</em>, conforme o padrão IEEE-754, podem ser um pouco mais trabalhosos de lidar do que você estava acostumado em outras linguagens. Rust deixa explícito possíveis tiros no pé que poderiam passar despercebidos.</p>
+<p><code>f32</code> e <code>f64</code>. Examples: <code>1.0</code>, <code>-15.50f32</code></p>
+<p>Floating point numbers can represent decimal numbers (with an impression inherent of the floating point representation in the <em>hardware</em>). <em>Floats</em>, as defined by IEEE-754, can be more a bit more painful to work with than what you're used to in other languages. Rust makes explicit some footguns that could pass unnoticed.</p>
 <h3 id="bool"><a class="header" href="#bool"><strong>bool</strong></a></h3>
-<p>Pode assumir os valores <code>true</code> e <code>false</code>.</p>
+<p>Can be <code>true</code> or <code>false</code>.</p>
 <h3 id="unit"><a class="header" href="#unit">Unit</a></h3>
-<p>Esse é o tipo do <code>()</code>, que é o único valor desse tipo. Ele é usado em locais em que não há um valor significativo definido. Por exemplo: funções que &quot;não retornam nada&quot; na verdade retornam <code>()</code>.</p>
-<h2 id="variáveis"><a class="header" href="#variáveis">Variáveis</a></h2>
-<p>Uma variável guarda um valor e ela pode ser manipulada através de seu identificador. Em Rust, utilizamos o <code>let</code> para definir variáveis. <code>let</code> trabalha com casamento de padrões, mas por enquanto não iremos tirar proveito desse recurso para manter as coisas simples.</p>
-<p>Abaixo segue o esqueleto de declaração e associação (<em>binding</em>) de uma variável.</p>
-<pre><code class="language-rust ignore">// Declaração
-let &lt;identificador&gt;: &lt;tipo&gt;;
+<p>This is the type of the empty tuple <code>()</code>, which is the only value of this type. It is used in places where there's no meaningful value defined. For example: functions which &quot;return nothing&quot; actually return <code>()</code>.</p>
+<h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
+<p>A variable stores a value and can be manipulated through its identifier. In Rust, we use <code>let</code> to define variables. <code>let</code> works with pattern matching, but for now we're not going to take advantage of it to keep things simple.</p>
+<p>Below there's the skeleton of declaration and binding of variables.</p>
+<pre><code class="language-rust ignore">// Declaration
+let &lt;identifier&gt;: &lt;type&gt;;
 
-// Declaração com associação de valor
-let &lt;identificador&gt;[: &lt;tipo&gt;] = &lt;expressão&gt;;
+// Declaration with value binding
+let &lt;identifier&gt;[: &lt;type&gt;] = &lt;expression&gt;;
 </code></pre>
-<p>As variáveis em Rust são imutáveis por padrão. Caso você tente mudar o conteúdo de uma variável imutável, o compilador reclamará:</p>
+<p>Rust variables are immutable by default. If you try to change an immutable variable's content, the compiler will complain:</p>
 <pre><pre class="playground"><code class="language-rust compile_fail edition2021">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// Se você tentar rodar, verá que esse código não compila.
+</span>// If you try to run it, You'll see that this code doesn't compile.
 let x = 5;
 x = 10;
 <span class="boring">}
 </span></code></pre></pre>
-<p>Como nosso querido compilador sugere, basta adicionar <code>mut</code> antes do identificador para tornar a variável mutável.</p>
+<p>As our dear compiler suggests, just add <code>mut</code> before the identifier to make the variable mutable.</p>
 <pre><pre class="playground"><code class="language-rust edition2021">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// Agora vai!
+</span>// It'll work this time!
 let mut x = 5;
 x = 10;
 assert_eq!(x, 10);
 <span class="boring">}
 </span></code></pre></pre>
-<p>É importante notar que Rust possui inferência de tipos. Isto é, ela tenta identificar tipos não declarados através dos tipos das expressões utilizadas no código. Por exemplo:</p>
+<p>It's important to note that Rust has type inference. This means that it tries to identify undeclared types by using the types of the expressions present in the code. For example:</p>
 <pre><code class="language-rust ignore">let is_raining = true;
 </code></pre>
-<p>Não é obrigatório anotar o tipo. Já que <code>true</code> é do tipo <code>bool</code>, <code>is_raining</code> também vai ser.</p>
-<h2 id="operadores"><a class="header" href="#operadores">Operadores</a></h2>
-<p>Uma lista completa pode ser encontrada <a href="https://doc.rust-lang.org/book/appendix-02-operators.html">neste apêndice do livro do Rust</a>.</p>
-<h3 id="aritméticos"><a class="header" href="#aritméticos">Aritméticos</a></h3>
+<p>It's not necessary to annotate the type. As <code>true</code> is of type <code>bool</code>, <code>is_raining</code> will also be.</p>
+<h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
+<p>A complete list can be found <a href="https://doc.rust-lang.org/book/appendix-02-operators.html">on this Rust Book appendix</a>.</p>
+<h3 id="arithmetic"><a class="header" href="#arithmetic">Arithmetic</a></h3>
 <p><code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>%</code></p>
-<p>Caso você não conheça, <code>%</code> é o resto de divisão do primeiro número pelo segundo.</p>
-<p>Esses operadores podem ser usados em conjunto com atribuição. Por exemplo:</p>
+<p>In case you don't know, <code>%</code> is the division remainder of the first number by the second one.</p>
+<p>These operators can be used together with assignment. For example:</p>
 <pre><pre class="playground"><code class="language-rust edition2021">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -216,11 +216,11 @@ x += 1;
 assert_eq!(x, 5);
 <span class="boring">}
 </span></code></pre></pre>
-<h3 id="lógicos"><a class="header" href="#lógicos">Lógicos</a></h3>
+<h3 id="logic"><a class="header" href="#logic">Logic</a></h3>
 <ul>
-<li>Negação:<code>!</code></li>
-<li>E lógico: <code>&amp;&amp;</code></li>
-<li>OU lógico: <code>||</code></li>
+<li>Negation: <code>!</code></li>
+<li>logic AND: <code>&amp;&amp;</code></li>
+<li>logic OR: <code>||</code></li>
 </ul>
 <pre><pre class="playground"><code class="language-rust edition2021">
 <span class="boring">#![allow(unused)]
@@ -229,7 +229,7 @@ assert_eq!(x, 5);
 assert_eq!(x, true);
 <span class="boring">}
 </span></code></pre></pre>
-<h3 id="relacionais"><a class="header" href="#relacionais">Relacionais</a></h3>
+<h3 id="relational"><a class="header" href="#relational">Relational</a></h3>
 <p><code>&lt;</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>, <code>&gt;=</code>, <code>&gt;</code></p>
 <pre><pre class="playground"><code class="language-rust edition2021">
 <span class="boring">#![allow(unused)]
@@ -249,9 +249,6 @@ assert_eq!(y, false);
                             <a rel="prev" href="tools.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="structured_programming/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -260,9 +257,6 @@ assert_eq!(y, false);
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="tools.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a rel="next" href="structured_programming/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 

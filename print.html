@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="basic_elements.html"><strong aria-hidden="true">3.</strong> Basic Elements</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -216,6 +216,102 @@
 <p>It's the Language Server which powers many text editors, like VS Code and Vim. On VS Code, just need to install the <code>rust-lang.rust-analyzer</code> extension to have great support.</p>
 <h3 id="intellij-rust"><a class="header" href="#intellij-rust"><a href="https://www.jetbrains.com/pt-br/rust/">Intellij Rust</a></a></h3>
 <p>For Intellij-based IDEs, there's a plugin openly developed by JetBrains which brings Rust support for their editors. Just go to the plugins manager and install it to use Rust on Intellij.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="basic-elements"><a class="header" href="#basic-elements">Basic Elements</a></h1>
+<p>The elements below, although simple, are an important starting point to code. Most of these concepts are present in other languages.</p>
+<h2 id="primitives-types"><a class="header" href="#primitives-types">Primitives Types</a></h2>
+<p>This section is non-exhaustive by a matter of simplicity. There are other primitive types beyond these and you may find information about them on the <a href="https://doc.rust-lang.org/std/index.html#primitives">primitive types section in the standard library's documentation</a>.</p>
+<h3 id="integers"><a class="header" href="#integers"><strong>Integers</strong></a></h3>
+<ul>
+<li>Signed: <code>i8</code>, <code>i16</code>, <code>i32</code>, <code>i64</code>, <code>i128</code> e <code>isize</code>. (<code>i</code> from <em>integer</em>).
+<ul>
+<li>e.g.: <code>0</code>, <code>-5</code>, <code>1_000_000i32</code></li>
+</ul>
+</li>
+<li>Unsigned: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code> e <code>usize</code>.
+<ul>
+<li>e.g.: <code>10</code>, <code>42</code>, <code>1_000_000usize</code></li>
+</ul>
+</li>
+</ul>
+<p>The number in the type indicates how many bits are used by the integer. This has direct relation with the range of values which are possible to represent on that type. For example, <code>u8</code> can only represent a range of 2<sup>8</sup> values.</p>
+<h3 id="floats"><a class="header" href="#floats"><strong>Floats</strong></a></h3>
+<p><code>f32</code> e <code>f64</code>. Examples: <code>1.0</code>, <code>-15.50f32</code></p>
+<p>Floating point numbers can represent decimal numbers (with an impression inherent of the floating point representation in the <em>hardware</em>). <em>Floats</em>, as defined by IEEE-754, can be more a bit more painful to work with than what you're used to in other languages. Rust makes explicit some footguns that could pass unnoticed.</p>
+<h3 id="bool"><a class="header" href="#bool"><strong>bool</strong></a></h3>
+<p>Can be <code>true</code> or <code>false</code>.</p>
+<h3 id="unit"><a class="header" href="#unit">Unit</a></h3>
+<p>This is the type of the empty tuple <code>()</code>, which is the only value of this type. It is used in places where there's no meaningful value defined. For example: functions which &quot;return nothing&quot; actually return <code>()</code>.</p>
+<h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
+<p>A variable stores a value and can be manipulated through its identifier. In Rust, we use <code>let</code> to define variables. <code>let</code> works with pattern matching, but for now we're not going to take advantage of it to keep things simple.</p>
+<p>Below there's the skeleton of declaration and binding of variables.</p>
+<pre><code class="language-rust ignore">// Declaration
+let &lt;identifier&gt;: &lt;type&gt;;
+
+// Declaration with value binding
+let &lt;identifier&gt;[: &lt;type&gt;] = &lt;expression&gt;;
+</code></pre>
+<p>Rust variables are immutable by default. If you try to change an immutable variable's content, the compiler will complain:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// If you try to run it, You'll see that this code doesn't compile.
+let x = 5;
+x = 10;
+<span class="boring">}
+</span></code></pre></pre>
+<p>As our dear compiler suggests, just add <code>mut</code> before the identifier to make the variable mutable.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// It'll work this time!
+let mut x = 5;
+x = 10;
+assert_eq!(x, 10);
+<span class="boring">}
+</span></code></pre></pre>
+<p>It's important to note that Rust has type inference. This means that it tries to identify undeclared types by using the types of the expressions present in the code. For example:</p>
+<pre><code class="language-rust ignore">let is_raining = true;
+</code></pre>
+<p>It's not necessary to annotate the type. As <code>true</code> is of type <code>bool</code>, <code>is_raining</code> will also be.</p>
+<h2 id="operators"><a class="header" href="#operators">Operators</a></h2>
+<p>A complete list can be found <a href="https://doc.rust-lang.org/book/appendix-02-operators.html">on this Rust Book appendix</a>.</p>
+<h3 id="arithmetic"><a class="header" href="#arithmetic">Arithmetic</a></h3>
+<p><code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, <code>%</code></p>
+<p>In case you don't know, <code>%</code> is the division remainder of the first number by the second one.</p>
+<p>These operators can be used together with assignment. For example:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut x = 2 + 2;
+x += 1;
+assert_eq!(x, 5);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="logic"><a class="header" href="#logic">Logic</a></h3>
+<ul>
+<li>Negation: <code>!</code></li>
+<li>logic AND: <code>&amp;&amp;</code></li>
+<li>logic OR: <code>||</code></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = true &amp;&amp; !false;
+assert_eq!(x, true);
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="relational"><a class="header" href="#relational">Relational</a></h3>
+<p><code>&lt;</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>, <code>&gt;=</code>, <code>&gt;</code></p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5 &lt;= 10;
+assert_eq!(x, true);
+
+let y = 3 &lt; 1;
+assert_eq!(y, false);
+<span class="boring">}
+</span></code></pre></pre>
 
                     </main>
 
