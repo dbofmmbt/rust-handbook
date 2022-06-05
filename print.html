@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="basic_elements.html"><strong aria-hidden="true">3.</strong> Basic Elements</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">About the handbook</a></li><li class="chapter-item expanded affix "><li class="part-title">Guide</li><li class="chapter-item expanded "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/prerequisites.html"><strong aria-hidden="true">1.1.</strong> Pre-requisites</a></li><li class="chapter-item expanded "><a href="introduction/installation.html"><strong aria-hidden="true">1.2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="introduction/hello_world.html"><strong aria-hidden="true">1.3.</strong> Hello, World!</a></li></ol></li><li class="chapter-item expanded "><a href="tools.html"><strong aria-hidden="true">2.</strong> Tools</a></li><li class="chapter-item expanded "><a href="basic_elements.html"><strong aria-hidden="true">3.</strong> Basic Elements</a></li><li class="chapter-item expanded "><a href="ownership_and_borrowing.html"><strong aria-hidden="true">4.</strong> Ownership & Borrowing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -312,6 +312,214 @@ let y = 3 &lt; 1;
 assert_eq!(y, false);
 <span class="boring">}
 </span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ownership-and-borrowing"><a class="header" href="#ownership-and-borrowing">Ownership and Borrowing</a></h1>
+<p>If you ask me: &quot;what is Rust's most innovative feature?&quot;, my answer would be <em>ownership</em>. This concept allows the language to be memory-safe without a garbage collector. In practice, you have the performance of a systems language without giving up reliability.</p>
+<p>If you came from languages that are not C or C++, it means that now you have a systems language that feels like programming in the high-level. Anyone can write efficient code without the fear of accidentally corrupt the memory.</p>
+<p>If by chance you now C or C++, you probably needed to debug a series of errors from manual memory management. You'll be happy to know that <code>rustc</code> simply rejects programs which can cause these errors with helpful, instructive messages, explaining you what could go wrong.</p>
+<h2 id="the-concept"><a class="header" href="#the-concept">The Concept</a></h2>
+<p>The ownership rules are pretty simple:</p>
+<ul>
+<li>Every value has a variable which is its owner.</li>
+<li>the value's ownership can be moved.</li>
+<li>When the owner goes out of the scope, the value is released.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    let x = String::from(&quot;hello&quot;); // x is the owner of the string
+    // ...
+    println!(&quot;Initially, x is owner of: {x}&quot;);
+    // ...
+    let y = x; // The string was moved to `y`. `x` stopped being the owner.
+    // From this point, trying to access the string through `x` is an invalid operation, since the string was moved.
+    // ...
+    // println!(&quot;x is owner of: {x}&quot;); // invalid!
+    // ...
+    println!(&quot;Now, y is owner of: {y}&quot;);
+    // ...
+    // At the end of this function, `y` goes out of scope and the string will be released.
+}
+</code></pre></pre>
+<p>Besides ownership, we have borrowing:</p>
+<ul>
+<li>The value's owner can borrow it through shared references (immutable) or unique references (mutable).</li>
+<li>At any moment, there can only be one unique reference or any number or any number of shared references.</li>
+<li>References are always valid. They can't be used after the value they reference is moved or released.</li>
+</ul>
+<p>That's it. By following these rules, we are free from any trouble involving allocation and release of resources. <strong>And the best part</strong>: the compiler check if we're following them automatically.</p>
+<p>Illustrating with an example:</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">
+struct Book {
+    title: String,
+}
+
+fn shared(book: &amp;Book) {
+    println!(&quot;[shared] The book's title is: {}\n&quot;, book.title);
+}
+
+fn unique(book: &amp;mut Book) {
+    println!(&quot;[unique] The book's title was: {}&quot;, book.title);
+    book.title.push_str(&quot; part 2&quot;);
+    println!(&quot;[unique] Now the title is: {}\n&quot;, book.title);
+}
+
+fn be_owner(book: Book) {
+    println!(&quot;[be_owner] I'm the owner of the book: {}\n&quot;, book.title);
+}
+
+fn main() {
+    let mut first_owner = Book {
+        title: String::from(&quot;How to make friends and influence people&quot;) // recommended
+    };
+
+    // Here, we are lending a shared borrow of the book to the variable `first_borrow`
+    let first_borrow = &amp;first_owner;
+
+    // We create a second shared reference to pass to the function `shared`
+    shared(&amp;first_owner);
+
+    // That's okay if you lend a mutable borrow....
+    unique(&amp;mut first_owner);
+
+    // But you cannot access `first_borrow` anymore!
+    // println!(&quot;title: {}&quot;, first_borrow.title);
+
+    // But there's no problem to create a new shared reference.
+    let second_borrow = &amp;first_owner;
+
+    // The idea is that if you have a shared reference, you cannot access it after it could've been changed (e.g. by a mutable reference or when the value is moved to other owner)
+
+    // Everything okay!
+    shared(second_borrow);
+
+    // Ownership moved to other owner.
+    let second_owner = first_owner;
+
+    // All the preceding references stopped being valid because of the move. The old owner stopping being accessible too!
+    // shared(second_borrow);
+    // unique(&amp;mut first_owner);
+
+    println!(&quot;[main] second owner: {}\n&quot;, second_owner.title);
+
+    be_owner(second_owner);
+
+    // The book is not accessible here, since its ownership was passed to the `be_owner` function. At this point, the value has been released. `second_owner` is not accessible too.
+    // let invalid_borrow = &amp;second_owner;
+}
+</code></pre></pre>
+<p>Feel free to play with this example. Notice the error messages. They are very descriptive and were made to help you having a better understanding of why a given piece of code is invalid.</p>
+<p>All you have seen here affects the whole language. With time, these concepts become natural and you'll start to agree with the borrow checker (part of <code>rustc</code> which checks if you're following the rules) instead of fighting it. I even miss these concepts when I go back to other languages, because it's usually easier to understand what's happening in the source code.</p>
+<p>Maybe some people will notice that certain things which cause errors in the <code>Book</code> example are possible with integers and floats. The reason is that these types are cheap to copy. So, instead of moving them, the value is copied. It happens because they implement the trait <code>Copy</code>. We'll talk about traits ahead, but they're similar to interfaces in other languages.</p>
+<p>Besides that, I omitted the lifetimes concept in purpose. They are necessary for the compiler to guarantee that the references are always valid. However, it seemed more appropriate to get into this concept after explaining generic code, as a lifetime is a sort of generalization over how long a reference is valid.</p>
+<h2 id="what-rustc-protects-you-from"><a class="header" href="#what-rustc-protects-you-from">What <code>rustc</code> protects you from</a></h2>
+<p>The following examples are written in C, because it allows to illustrate well how you could cause undefined behavior (UB) in your program, which is basically an elegant way of telling that it can, under any execution, make your application:</p>
+<ul>
+<li>Abort execution</li>
+<li>Run normally</li>
+<li>Run, but process invalid values</li>
+</ul>
+<p>When you got UB, the best to happen is the execution to be aborted as soon as the corruption occurs. This way, you can try to identify where the improper memory use occurred. Nonetheless, it can work on your machine, but not in production. Yeah, very fun.</p>
+<p>Personally, I just understood all the memory problems below after learning Rust. Before that, I just stumbled on them without fully understanding the kind of error that was happening on my program. In my C learning, no reference I used taught me about those classes of errors in a clear way.</p>
+<h3 id="use-after-free"><a class="header" href="#use-after-free">use after free</a></h3>
+<p>It consists in using a memory which you already released to the system. When a memory region is no longer yours, there's no guarantee that you're accessing valid information.</p>
+<pre><code class="language-c">void main() {
+    int *p = malloc(sizeof(int));
+    // ...
+    free(p);
+    *p = 123; // Writing on a released memory region! UB!
+}
+</code></pre>
+<p>In the best case, you'll get a segmentation fault. In the worst, <code>*p</code>'s content will be overwritten and you'll process garbage, making the execution fails in other part of the code, or even worse: your program may generate and invalid output. I lost two nights of sleep on this kind of error once.</p>
+<p>In Rust, it doesn't even compile:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">fn main() {
+    let x = String::from(&quot;ferris!&quot;);
+    drop(x); // The string's ownership has been moved to `drop`
+    // ...
+    println!(&quot;{x}&quot;);
+}
+</code></pre></pre>
+<h3 id="double-free"><a class="header" href="#double-free">double free</a></h3>
+<p>The same memory address is released twice.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500);
+    // ...
+    free(p);
+    // ...
+    free(p); // Same address released more than once! UB!
+}
+</code></pre>
+<p>It looks improbable to occur, but it can be easy to introduce on a refactor.</p>
+<p>In Rust, it doesn't even compile:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">fn main() {
+    let x = String::from(&quot;ferris!&quot;);
+    drop(x); // The string's ownership has been moved to `drop`
+    // ...
+    drop(x); // It isn't possible to pass to `drop` (or to any other fn) a value which has been moved.
+}
+</code></pre></pre>
+<h3 id="dereferencing-a-null-pointer"><a class="header" href="#dereferencing-a-null-pointer">Dereferencing a null pointer</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">The 1 billion dollars mistake</a>. Even high-level languages, with garbage collection, allow this memory error.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500); // this function may return NULL in case memory hasn't been allocated successfully
+    // ...
+    *p = 123; // Following a NULL pointer! UB!
+}
+</code></pre>
+<p>The good side of this error is that it normally aborts the execution instead of processing invalid data. The bad side... This is an error class which is totally avoidable, even without ownership. The sooner errors are fixed, lower are the costs. If your tools stop the introduction of certain kinds of defects, that's even better.</p>
+<p>In Rust... There's no null reference. We use <code>Option&lt;T&gt;</code> to represent that a value of type <code>T</code> can be present (<code>Some(value)</code>) or not (<code>None</code>).</p>
+<pre><pre class="playground"><code class="language-rust editable edition2021">fn main() {
+    let x: Option&lt;String&gt; = Some(String::from(&quot;ferris!&quot;));
+    // ...
+    // I can't access string directly without first checking if `x`, which is a `Option&lt;String&gt;`, is `Some(...)` or `None`.
+    match x {
+        Some(value) =&gt; println!(&quot;I found this: {value}&quot;),
+        None =&gt; println!(&quot;Nothing here!&quot;),
+    }
+}
+</code></pre></pre>
+<h3 id="memory-leak"><a class="header" href="#memory-leak">Memory leak</a></h3>
+<p>Technically, leaking memory isn't considered UB. However, it consumes system resources unnecessarily.</p>
+<pre><code class="language-c">void main() {
+    void *p = malloc(500000000);
+    // Using p...
+    // ...
+    // I don't need `p` anymore, but I forgot to `free` it...
+    // ...
+}
+</code></pre>
+<p>In Rust, memory will be released automatically once the owner goes out of scope. Even though leaking memory is something safe to do in Rust (i.e. someone could leak memory explicitly if they want/need without using <code>unsafe</code>), most of the time it'll be released automatically due to the ownership concept.</p>
+<h3 id="accessing-an-invalid-memory-region"><a class="header" href="#accessing-an-invalid-memory-region">Accessing an invalid memory region</a></h3>
+<p>To read or to write information beyond the allocated memory. The memory you accessed isn't yours, so anything can happen.</p>
+<pre><code class="language-c">void main() {
+    int *p = malloc(10 * sizeof(int));
+    p[10] = 42; // I wrote on the 11th position! UB!
+}
+</code></pre>
+<p>Reasonably easy to happen when using arrays.</p>
+<p>In Rust, the execution will always be aborted, indicating which code tried to perform an invalid access to memory:</p>
+<pre><pre class="playground"><code class="language-rust should_panic edition2021">fn main() {
+    let x = vec![1, 2, 3];
+    // ...
+    let v = x[100_000]; // For sure our `vec` doesn't have all that size
+    println!(&quot;An integer from x: {v}&quot;);
+}
+</code></pre></pre>
+<h3 id="manipulate-uninitialized-memory"><a class="header" href="#manipulate-uninitialized-memory">Manipulate uninitialized memory</a></h3>
+<p>Uninitialized memory may contain anything. In the best case, the memory will be zeroed. In the worst, you'll read anything that was written there before.</p>
+<pre><code class="language-c">void main() {
+    int *p;
+    // ...
+    int x = *p; // Dereferencing `p` without initializing it before! UB!
+}
+</code></pre>
+<p>In Rust, it doesn't even compile:</p>
+<pre><pre class="playground"><code class="language-rust compile_fail edition2021">fn main() {
+    let x: String;
+    // Oops, we forgot to initialize...
+    println!(&quot;{x}&quot;);
+}
+</code></pre></pre>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
+<p>Probably, there's other memory problems that I didn't cover. Fortunately, you'll hardly find them. Yes, it's possible to have UB in Rust if you (or your dependency) uses <em>unsafe</em> incorrectly, but it's very likely that you won't need this language resource to develop your software.</p>
+<p>Don't worry about decorating the rules. What is important is to understand what each of them mean. It's the compiler's job to ensure that they are being followed.</p>
 
                     </main>
 
