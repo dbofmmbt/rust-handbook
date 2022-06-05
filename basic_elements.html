@@ -158,11 +158,12 @@
 </li>
 <li>Unsigned: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, <code>u128</code> e <code>usize</code>.
 <ul>
-<li>e.g.: <code>10</code>, <code>42</code>, <code>1_000_000usize</code></li>
+<li>It needs to be non-negative. e.g.: <code>0</code>, <code>10</code>, <code>42</code>, <code>1_000_000usize</code></li>
 </ul>
 </li>
 </ul>
 <p>The number in the type indicates how many bits are used by the integer. This has direct relation with the range of values which are possible to represent on that type. For example, <code>u8</code> can only represent a range of 2<sup>8</sup> values.</p>
+<p>If the type of the integer literal is not explicitly annotated or cannot be inferred, it will be <code>i32</code> by default.</p>
 <h3 id="floats"><a class="header" href="#floats"><strong>Floats</strong></a></h3>
 <p><code>f32</code> e <code>f64</code>. Examples: <code>1.0</code>, <code>-15.50f32</code></p>
 <p>Floating point numbers can represent decimal numbers (with an impression inherent of the floating point representation in the <em>hardware</em>). <em>Floats</em>, as defined by IEEE-754, can be more a bit more painful to work with than what you're used to in other languages. Rust makes explicit some footguns that could pass unnoticed.</p>
