@@ -11,9 +11,11 @@ This section is non-exhaustive by a matter of simplicity. There are other primit
 - Signed: `i8`, `i16`, `i32`, `i64`, `i128` e `isize`. (`i` from _integer_).
   - e.g.: `0`, `-5`, `1_000_000i32`
 - Unsigned: `u8`, `u16`, `u32`, `u64`, `u128` e `usize`.
-  - e.g.: `10`, `42`, `1_000_000usize`
+  - It needs to be non-negative. e.g.: `0`, `10`, `42`, `1_000_000usize`
 
 The number in the type indicates how many bits are used by the integer. This has direct relation with the range of values which are possible to represent on that type. For example, `u8` can only represent a range of 2<sup>8</sup> values.
+
+If the type of the integer literal is not explicitly annotated or cannot be inferred, it will be `i32` by default.
 
 ### **Floats**
 
