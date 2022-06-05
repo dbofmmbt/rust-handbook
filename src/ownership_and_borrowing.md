@@ -1,45 +1,45 @@
-# Propriedade e Empréstimo
+# Ownership and Borrowing
 
-Se você me perguntar: "qual é a coisa mais inovadora de Rust?", minha resposta é _ownership_. Esse conceito permite que a linguagem seja _memory-safe_ sem coletor de lixo. Na prática, você tem o desempenho de uma linguagem de sistemas sem abrir mão da confiabilidade.
+If you ask me: "what is Rust's most innovative feature?", my answer would be _ownership_. This concept allows the language to be memory-safe without a garbage collector. In practice, you have the performance of a systems language without giving up reliability.
 
-Se você veio de linguagens que não sejam C ou C++, isso quer dizer que agora você tem uma linguagem de sistemas que te dá passa a sensação de programar em alto nível. Qualquer um pode escrever código eficiente sem medo de acidentalmente corromper a memória.
+If you came from languages that are not C or C++, it means that now you have a systems language that feels like programming in the high-level. Anyone can write efficient code without the fear of accidentally corrupt the memory.
 
-Se por acaso você conhece C e C++, você provavelmente já precisou debuggar uma série de erros provenientes do gerenciamento manual de memória. Ficará feliz em saber que o `rustc` simplesmente rejeita programas que podem causar esses erros, com mensagens de erro instrutivas, te explicando o que poderia ocorrer de errado.
+If by chance you now C or C++, you probably needed to debug a series of errors from manual memory management. You'll be happy to know that `rustc` simply rejects programs which can cause these errors with helpful, instructive messages, explaining you what could go wrong.
 
-## O Conceito
+## The Concept
 
-As regras de propriedade são bem simples:
+The ownership rules are pretty simple:
 
-- Todo valor tem uma única variável que é sua dona.
-- A propriedade do valor pode ser movida.
-- Quando a dona sai de escopo, o valor é liberado.
+- Every value has a variable which is its owner.
+- the value's ownership can be moved.
+- When the owner goes out of the scope, the value is released.
 
 ```rust,editable
 fn main() {
-    let x = String::from("hello"); // x é dona da string
+    let x = String::from("hello"); // x is the owner of the string
     // ...
-    println!("Inicialmente, x é dona de: {x}");
+    println!("Initially, x is owner of: {x}");
     // ...
-    let y = x; // a string foi movida para `y`. `x` deixou de ser dona.
-    // A partir desse ponto, tentar acessar a string através de `x` é uma operação inválida, já que a string foi movida.
+    let y = x; // The string was moved to `y`. `x` stopped being the owner.
+    // From this point, trying to access the string through `x` is an invalid operation, since the string was moved.
     // ...
-    // println!("x é dona de: {x}"); // inválido!
+    // println!("x is owner of: {x}"); // invalid!
     // ...
-    println!("Agora, y é dona de: {y}");
+    println!("Now, y is owner of: {y}");
     // ...
-    // Ao final dessa função, `y` sai de escopo e a string vai ser liberada.
+    // At the end of this function, `y` goes out of scope and the string will be released.
 }
 ```
 
-Além da propriedade, temos o empréstimo:
+Besides ownership, we have borrowing:
 
-- O dono de um valor pode emprestá-lo através de referências compartilhadas (imutáveis) ou únicas (mutáveis).
-- A qualquer momento, só pode haver uma referência única ou qualquer número de referências compartilhadas.
-- Referências são sempre válidas. Elas não podem ser utilizadas após o valor que referenciam ser movido ou liberado.
+- The value's owner can borrow it through shared references (immutable) or unique references (mutable).
+- At any moment, there can only be one unique reference or any number or any number of shared references.
+- References are always valid. They can't be used after the value they reference is moved or released.
 
-É isso. Ao respeitar essas regras, estamos livres de qualquer problema envolvendo alocação e liberação de recursos. **E a melhor parte**: o compilador checa se estamos respeitando essas regras automaticamente.
+That's it. By following these rules, we are free from any trouble involving allocation and release of resources. **And the best part**: the compiler check if we're following them automatically.
 
-Ilustrando com um exemplo:
+Illustrating with an example:
 
 ```rust,editable
 
@@ -48,109 +48,109 @@ struct Book {
 }
 
 fn shared(book: &Book) {
-    println!("[shared] O título do livro é: {}\n", book.title);
+    println!("[shared] The book's title is: {}\n", book.title);
 }
 
 fn unique(book: &mut Book) {
-    println!("[unique] O título do livro era: {}", book.title);
-    book.title.push_str(" parte 2");
-    println!("[unique] Agora o título é: {}\n", book.title);
+    println!("[unique] The book's title was: {}", book.title);
+    book.title.push_str(" part 2");
+    println!("[unique] Now the title is: {}\n", book.title);
 }
 
 fn be_owner(book: Book) {
-    println!("[be_owner] Sou dono do livro: {}\n", book.title);
+    println!("[be_owner] I'm the owner of the book: {}\n", book.title);
 }
 
 fn main() {
     let mut first_owner = Book {
-        title: String::from("Como fazer amigos e influenciar pessoas") // recomendo
+        title: String::from("How to make friends and influence people") // recommended
     };
 
-    // Aqui estamos concedendo um empréstimo compartilhado do livro para a variável `first_borrow`
+    // Here, we are lending a shared borrow of the book to the variable `first_borrow`
     let first_borrow = &first_owner;
 
-    // Criamos uma segunda referência compartilhada para passar para a função `shared`
+    // We create a second shared reference to pass to the function `shared`
     shared(&first_owner);
 
-    // Tudo bem você fazer um empréstimo mutável...
+    // That's okay if you lend a mutable borrow....
     unique(&mut first_owner);
 
-    // Mas você não pode mais acessar `first_borrow`!
-    // println!("titulo: {}", first_borrow.title);
+    // But you cannot access `first_borrow` anymore!
+    // println!("title: {}", first_borrow.title);
 
-    // Mas não tem problema você criar uma nova referência compartilhada.
+    // But there's no problem to create a new shared reference.
     let second_borrow = &first_owner;
 
-    // A ideia é que se você tem uma referência compartilhada, você não pode acessar o conteúdo dela caso ele possa ter sido alterado (i.e. por uma referência única ou quando o valor é movido de dono)
+    // The idea is that if you have a shared reference, you cannot access it after it could've been changed (e.g. by a mutable reference or when the value is moved to other owner)
 
-    // Tudo okay!
+    // Everything okay!
     shared(second_borrow);
 
-    // Propriedade movida para um novo dono.
+    // Ownership moved to other owner.
     let second_owner = first_owner;
 
-    // Todas as referências anteriores deixam de ser válidas por conta do movimento. O antigo dono deixa de ser acessível também!
+    // All the preceding references stopped being valid because of the move. The old owner stopping being accessible too!
     // shared(second_borrow);
     // unique(&mut first_owner);
 
-    println!("[main] segundo dono: {}\n", second_owner.title);
+    println!("[main] second owner: {}\n", second_owner.title);
 
     be_owner(second_owner);
 
-    // O livro não é mais acessível aqui, já que sua propriedade foi passada para a função `be_owner`. Nesse ponto, o valor já foi liberado. `second_owner` também não é mais acessível.
+    // The book is not accessible here, since its ownership was passed to the `be_owner` function. At this point, the value has been released. `second_owner` is not accessible too.
     // let invalid_borrow = &second_owner;
 }
 ```
 
-Fique à vontade para brincar com esse exemplo. Repare nas mensagens de erro. Elas são bem descritivas e foram feitas para te ajudar a ter uma melhor compreensão do porquê determinada operação é inválida.
+Feel free to play with this example. Notice the error messages. They are very descriptive and were made to help you having a better understanding of why a given piece of code is invalid.
 
-Tudo que você viu aqui permeia a linguagem inteiramente. Com o tempo, esses conceitos ficam naturais e você começa a concordar com o _borrow checker_ (parte do `rustc` que checa se você está respeitando as regras) em vez de lutar com ele. Dá até falta desses conceitos quando volto para outras linguagens, pois é mais fácil entender o que está acontecendo no programa.
+All you have seen here affects the whole language. With time, these concepts become natural and you'll start to agree with the borrow checker (part of `rustc` which checks if you're following the rules) instead of fighting it. I even miss these concepts when I go back to other languages, because it's usually easier to understand what's happening in the source code.
 
-Talvez algumas pessoas reparem que certas coisas que causam erro no exemplo do `Book` são possíveis com inteiros e _floats_. A razão disso é que esses tipos são baratos de copiar. Então, em vez de mover o valor, ele é copiado. Isso acontece, pois eles implementam a _trait_ `Copy`. Vamos conversar sobre _traits_ mais adiante.
+Maybe some people will notice that certain things which cause errors in the `Book` example are possible with integers and floats. The reason is that these types are cheap to copy. So, instead of moving them, the value is copied. It happens because they implement the trait `Copy`. We'll talk about traits ahead, but they're similar to interfaces in other languages.
 
-Além disso, eu propositalmente omiti o conceito de _lifetimes_. Eles são necessários para o compilador garantir que as referências são sempre válidas. Me pareceu mais apropriado abordar esse conceito após explicar código genérico, já que o _lifetime_ é uma generalização do tempo de vida de um valor.
+Besides that, I omitted the lifetimes concept in purpose. They are necessary for the compiler to guarantee that the references are always valid. However, it seemed more appropriate to get into this concept after explaining generic code, as a lifetime is a sort of generalization over how long a reference is valid.
 
-## Do que o `rustc` te protege
+## What `rustc` protects you from
 
-Os exemplos a seguir são em C, pois ela permite ilustrar bem como você pode causar comportamento indefinido (UB) no seu programa, que é basicamente uma forma elegante de dizer que ele pode, em qualquer execução da sua aplicação, fazer com que ela:
+The following examples are written in C, because it allows to illustrate well how you could cause undefined behavior (UB) in your program, which is basically an elegant way of telling that it can, under any execution, make your application:
 
-- Aborte a execução
-- Funcione normalmente
-- Funcione, mas processe valores inválidos
+- Abort execution
+- Run normally
+- Run, but process invalid values
 
-Quando você tem UB, o melhor que pode acontecer é a execução ser abortada assim que a corrupção ocorre. Assim você pode tentar identificar onde ocorreu o uso indevido de memória e corrigir o problema. Entretanto, pode funcionar na sua máquina, mas em produção não. É, bem divertido.
+When you got UB, the best to happen is the execution to be aborted as soon as the corruption occurs. This way, you can try to identify where the improper memory use occurred. Nonetheless, it can work on your machine, but not in production. Yeah, very fun.
 
-Particularmente, eu só entendi todos os problemas de memória abaixo quando aprendi Rust. Antes eu esbarrava neles sem saber de fato que tipo de erro estava ocorrendo. No meu aprendizado de C, nenhuma referência que usei me ensinou sobre essas classes de erros de forma clara.
+Personally, I just understood all the memory problems below after learning Rust. Before that, I just stumbled on them without fully understanding the kind of error that was happening on my program. In my C learning, no reference I used taught me about those classes of errors in a clear way.
 
-### _use after free_
+### use after free
 
-Consiste em usar uma memória que você já liberou para o sistema. Quando uma região de memória deixa de ser sua, não há garantia que você está acessando uma informação válida.
+It consists in using a memory which you already released to the system. When a memory region is no longer yours, there's no guarantee that you're accessing valid information.
 
 ```c
 void main() {
-    void *p = malloc(500);
+    int *p = malloc(sizeof(int));
     // ...
     free(p);
-    *p = 123; // Escrita em uma região de memória liberada! UB!
+    *p = 123; // Writing on a released memory region! UB!
 }
 ```
 
-No melhor dos casos, você vai tomar um _segmentation fault_. No pior, o conteudo de `*p` vai ser sobrescrito e você vai processar lixo, fazendo a execução dar erro em outra parte do código, ou pior: seu programa vai gerar um _output_ inválido. Perdi duas noites de sono nesse tipo de erro uma vez.
+In the best case, you'll get a segmentation fault. In the worst, `*p`'s content will be overwritten and you'll process garbage, making the execution fails in other part of the code, or even worse: your program may generate and invalid output. I lost two nights of sleep on this kind of error once.
 
-Em Rust, nem compila:
+In Rust, it doesn't even compile:
 
 ```rust,compile_fail
 fn main() {
     let x = String::from("ferris!");
-    drop(x); // A propriedade da string foi movida para `drop`
+    drop(x); // The string's ownership has been moved to `drop`
     // ...
     println!("{x}");
 }
 ```
 
-### _double free_
+### double free
 
-O mesmo endereço de memória é liberado duas vezes.
+The same memory address is released twice.
 
 ```c
 void main() {
@@ -158,115 +158,115 @@ void main() {
     // ...
     free(p);
     // ...
-    free(p); // Mesmo endereço de memória liberado mais de uma vez! UB!
+    free(p); // Same address released more than once! UB!
 }
 ```
 
-Parece improvável de ocorrer, mas em uma refatoração pode ser fácil de introduzir.
+It looks improbable to occur, but it can be easy to introduce on a refactor.
 
-Em Rust, nem compila:
+In Rust, it doesn't even compile:
 
 ```rust,compile_fail
 fn main() {
     let x = String::from("ferris!");
-    drop(x); // A propriedade da string foi movida para `drop`
+    drop(x); // The string's ownership has been moved to `drop`
     // ...
-    drop(x); // Não dá pra passar para `drop` (ou qualquer fn) um valor que foi movido.
+    drop(x); // It isn't possible to pass to `drop` (or to any other fn) a value which has been moved.
 }
 ```
 
-### dereferenciar ponteiro nulo
+### Dereferencing a null pointer
 
-O [erro de 1 bilhão de dólares](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions). Até linguagens de alto nível, com coletor de lixo, cometem.
+[The 1 billion dollars mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions). Even high-level languages, with garbage collection, allow this memory error.
 
 ```c
 void main() {
-    void *p = malloc(500); // essa função pode retornar NULL caso a memória não tenha sido alocada com sucesso
+    void *p = malloc(500); // this function may return NULL in case memory hasn't been allocated successfully
     // ...
-    *p = 123; // Escrita em NULL! UB!
+    *p = 123; // Following a NULL pointer! UB!
 }
 ```
 
-O lado bom desse erro é que ele normalmente aborta a execução em vez de processar dados inválidos. O lado ruim... essa é uma classe de erros totalmente evitável, mesmo sem _ownership_. Quanto mais cedo erros são corrigidos, menores são os custos. Se suas ferramentas impedem a introdução de certos tipos de defeitos, melhor ainda.
+The good side of this error is that it normally aborts the execution instead of processing invalid data. The bad side... This is an error class which is totally avoidable, even without ownership. The sooner errors are fixed, lower are the costs. If your tools stop the introduction of certain kinds of defects, that's even better.
 
-Em Rust... Não existe referência nula. Nós usamos `Option<T>` para representar um valor do tipo `T` que pode estar presente (`Some(value)`) ou não (`None`).
+In Rust... There's no null reference. We use `Option<T>` to represent that a value of type `T` can be present (`Some(value)`) or not (`None`).
 
 ```rust,editable
 fn main() {
     let x: Option<String> = Some(String::from("ferris!"));
     // ...
-    // Não posso acessar a string diretamente sem antes checar se `x`, que é uma `Option<String>` é `Some(...)` ou `None`.
+    // I can't access string directly without first checking if `x`, which is a `Option<String>`, is `Some(...)` or `None`.
     match x {
-        Some(value) => println!("{value}"),
-        None => println!("Nada aqui!"),
+        Some(value) => println!("I found this: {value}"),
+        None => println!("Nothing here!"),
     }
 }
 ```
 
-### Vazamento de Memória
+### Memory leak
 
-Tecnicamente, vazar memória não é considerado UB. Entretanto, isso consome recursos do sistema desnecessariamente.
+Technically, leaking memory isn't considered UB. However, it consumes system resources unnecessarily.
 
 ```c
 void main() {
     void *p = malloc(500000000);
-    // Usando p...
+    // Using p...
     // ...
-    // Não preciso mais de p, mas não liberei...
+    // I don't need `p` anymore, but I forgot to `free` it...
     // ...
 }
 ```
 
-Em Rust, a memória será liberada automaticamente quando o dono sai de escopo. Mesmo que vazar memória seja algo seguro de se fazer em Rust (i.e. alguém pode vazar memória explicitamente se quiser/precisar sem usar `unsafe`), a maior parte do tempo ela vai ser liberada por conta do conceito de propriedade.
+In Rust, memory will be released automatically once the owner goes out of scope. Even though leaking memory is something safe to do in Rust (i.e. someone could leak memory explicitly if they want/need without using `unsafe`), most of the time it'll be released automatically due to the ownership concept.
 
-### Acessar uma região de memória inválida
+### Accessing an invalid memory region
 
-Ler ou escrever informações fora dos limites da memória que você alocou. A memória que você acessou não é sua, então qualquer coisa pode acontecer.
+To read or to write information beyond the allocated memory. The memory you accessed isn't yours, so anything can happen.
 
 ```c
 void main() {
     int *p = malloc(10 * sizeof(int));
-    p[10] = 42; // Escrevi na décima primeira posição! UB!
+    p[10] = 42; // I wrote on the 11th position! UB!
 }
 ```
 
-Bem fácil de ocorrer com o uso de vetores.
+Reasonably easy to happen when using arrays.
 
-Em Rust, a execução sempre vai ser abortada, indicando onde ocorreu o acesso inválido à memória:
+In Rust, the execution will always be aborted, indicating which code tried to perform an invalid access to memory:
 
 ```rust,should_panic
 fn main() {
     let x = vec![1, 2, 3];
     // ...
-    let v = x[100_000]; // Com certeza nosso vetor não tem esse tamanho todo
-    println!("Um inteiro de x: {v}");
+    let v = x[100_000]; // For sure our `vec` doesn't have all that size
+    println!("An integer from x: {v}");
 }
 ```
 
-### Manipular memória não inicializada
+### Manipulate uninitialized memory
 
-Memória não inicializada pode conter qualquer coisa. No melhor dos casos o conteúdo vai estar zerado. No pior, você vai ler qualquer coisa.
+Uninitialized memory may contain anything. In the best case, the memory will be zeroed. In the worst, you'll read anything that was written there before.
 
 ```c
 void main() {
     int *p;
     // ...
-    int x = *p; // Dereferenciado p sem iniciazá-lo! UB!
+    int x = *p; // Dereferencing `p` without initializing it before! UB!
 }
 ```
 
-Em Rust, nem compila:
+In Rust, it doesn't even compile:
 
 ```rust,compile_fail
 fn main() {
     let x: String;
-    // Oops, esquecemos de inicializar...
+    // Oops, we forgot to initialize...
     println!("{x}");
 }
 ```
 
-## Conclusão
+## Conclusion
 
-Provavelmente existem outros problemas de memória que eu não abordei. Felizmente, você dificilmente vai encontrá-los. Sim, é possível ter UB em Rust se você (ou sua dependência) usar _unsafe_ incorretamente, mas é bastante provável que você não vai precisar desse recurso da linguagem.
+Probably, there's other memory problems that I didn't cover. Fortunately, you'll hardly find them. Yes, it's possible to have UB in Rust if you (or your dependency) uses _unsafe_ incorrectly, but it's very likely that you won't need this language resource to develop your software.
 
-Não se preocupe em decorar as regras. O importante é entender o que cada uma delas significa. É trabalho do compilador garantir que elas estão sendo respeitadas.
+Don't worry about decorating the rules. What is important is to understand what each of them mean. It's the compiler's job to ensure that they are being followed.

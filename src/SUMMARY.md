@@ -16,7 +16,7 @@
   <!-- - [Decision](./structured_programming/decision.md) -->
   <!-- - [Repetition](./structured_programming/repetition.md) -->
   <!-- - [Functions](./structured_programming/functions.md) -->
-<!-- - [Ownership & Borrowing](./ownership_and_borrowing.md) -->
+- [Ownership & Borrowing](./ownership_and_borrowing.md)
 <!-- - [Types & Traits](./types_and_traits.md) -->
 <!-- - [Generic Code](./generics.md) -->
 <!-- - [Project's Structure](./project_structure.md) -->
